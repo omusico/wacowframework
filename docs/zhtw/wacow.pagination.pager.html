@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>7.2 Pager (分頁器)</title>
+<link href="styles/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h2 id="basic_pager">7.2 Pager (分頁器)</h2>
+<h3>7.2.1 基本分頁器</h3>
+<p>在實作 <code>Wacow_Pagination_Pagable_Interface</code> 這個介面後，我們還得提供分頁器來計算要分頁的範圍。建立分頁器非常簡單，我們只要利用 <code>Wacow_Pagination</code> 的 <code>getPager</code> 方法即可。 <code>getPager</code> 方法可以接受兩個參數，第一個參數是設定用的陣列；第二個參數是分頁的型態，預設為基本分頁器，可不傳值。</p>
+<p>以下程式可以建立一個基本分頁器：</p>
+<pre><code>// 先得到目前的頁次
+$pageNumber = isset ($_GET['page'])
+            ? (int) $_GET['page']
+            : 1;
+
+// 分頁器設定值
+$setting = array(
+    'pageSize'    =&gt; 5, // 每頁幾筆
+    'currentPage' =&gt; $pageNumber, // 目前頁次
+);
+
+// 建立分頁器
+$pager = Wacow_Pagination::getPager($setting);</code></pre>
+<p>在基本分頁器的設定中，我們只需要告訴它每頁幾筆，以及目前的頁次即可。</p>
+<p>接下來我們要將 <code>TestModel</code> 裡的資料做分頁：</p>
+<pre><code>$model = new TestModel();
+$model-&gt;setPager($pager);</code></pre>
+<p>只要以上兩行程式，我們就能完成分頁動作了。記住，任何只要有實作 <code>Wacow_Pagination_Pagable_Interface</code> 的類別在產生物件實體後，就可以利用 <code>setPager</code> 方法來做分頁動作。</p>
+<p>然後我們可以利用 <code>getInfo</code> 方法來取得分頁後的資訊：</p>
+<pre><code>$info = $pager-&gt;getInfo();
+var_dump($info);</code></pre>
+<p>輸出如下：</p>
+<pre><code><b>array</b>
+  'totalPages' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">17</font>
+  'totalSize' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">82</font>
+  'pageSize' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">5</font>
+  'startPos' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">1</font>
+  'endPos' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">5</font>
+  'startPage' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">1</font>
+  'endPage' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">17</font>
+  'pageList' <font color="#888a85">=&gt;</font> 
+    <b>array</b>
+      1 <font color="#888a85">=&gt;</font> <small>string</small> <font color="#cc0000">'current'</font> <i>(length=7)</i>
+      2 <font color="#888a85">=&gt;</font> <small>string</small> <font color="#cc0000">''</font> <i>(length=0)</i>
+      3 <font color="#888a85">=&gt;</font> <small>string</small> <font color="#cc0000">''</font> <i>(length=0)</i>
+      ....
+  'currentPage' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">1</font></code></pre>
+<p>相關說明如下：</p>
+<table width="50%" border="1">
+<tr>
+<th width="30%">鍵值</th>
+<th>說明</th>
+</tr>
+<tr>
+<td width="30%" align="right">totalPages</td>
+<td>總頁數</td>
+</tr>
+<tr>
+<td width="30%" align="right">totalSize</td>
+<td>資料總筆數</td>
+</tr>
+<tr>
+<td width="30%" align="right">pageSize</td>
+<td>每頁資料筆數</td>
+</tr>
+<tr>
+<td width="30%" align="right">startPos</td>
+<td>目前頁次開始筆次</td>
+</tr>
+<tr>
+<td width="30%" align="right">endPos</td>
+<td>目前頁次結束筆次</td>
+</tr>
+<tr>
+<td width="30%" align="right">startPage</td>
+<td>開始頁次<br />
+在基本分頁器裡固定為 1 。 </td>
+</tr>
+<tr>
+<td width="30%" align="right">endPage</td>
+<td>結束頁次<br />
+在基本分頁器裡固定為總頁數。</td>
+</tr>
+<tr>
+<td width="30%" align="right">pageList</td>
+<td>頁面列表陣列<br />
+鍵為頁次，值如為 current 的話，表示為目前頁次。 </td>
+</tr>
+<tr>
+<td width="30%" align="right">currentPage</td>
+<td>目前頁次</td>
+</tr>
+</table>
+<p>後面我們就可以利用這些資訊來製作分頁器的使用者介面。</p>
+<h3 id="slide_pager">7.2.2 滑動式分頁器</h3>
+<p>基本分頁器在總頁數過多時，如果前端沒有適當處理的話，會讓頁面列表過長；這時候可以利用滑動式分頁器，來讓過長的頁面列表做一適當的輸出。</p>
+<p>滑動式分頁器會依照目前頁次，抓取該頁前後固定範圍的頁碼，而此範圍則是用 <code>layerSize</code> 選項來指定。滑動式分頁器的建立方式和基本分頁器的建立方式大同小異，主要是選項和分頁器類型指定上的差異。</p>
+<p>以下程式可以建立一個滑動式分頁器：</p>
+<pre><code>// 先得到目前的頁次
+// 分頁器設定值
+$setting = array(
+    'pageSize'    =&gt; 5, // 每頁幾筆
+    <strong>'layerSize'   =&gt; 5, // 每層幾頁</strong>
+    'currentPage' =&gt; $pageNumber, // 目前頁次
+);
+
+// 建立分頁器
+$pager = Wacow_Pagination::getPager($setting, <strong>'slide'</strong>);</code></pre>
+<p>以前面的例子而言，滑動式分頁器的 <code>getInfo()</code> 方法輸出結果如下： </p>
+<pre><code><b>array</b>
+  'totalPages' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">17</font>
+  'totalSize' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">82</font>
+  'pageSize' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">5</font>
+  'startPos' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">1</font>
+  'endPos' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">5</font>
+  'startPage' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">1</font>
+  'endPage' <font color="#888a85">=&gt;</font> <small>float</small> <font color="#f57900">6</font>
+  'pageList' <font color="#888a85">=&gt;</font> 
+    <b>array</b>
+      1 <font color="#888a85">=&gt;</font> <small>string</small> <font color="#cc0000">'current'</font> <i>(length=7)</i>
+      2 <font color="#888a85">=&gt;</font> <small>string</small> <font color="#cc0000">''</font> <i>(length=0)</i>
+      3 <font color="#888a85">=&gt;</font> <small>string</small> <font color="#cc0000">''</font> <i>(length=0)</i>
+      4 <font color="#888a85">=&gt;</font> <small>string</small> <font color="#cc0000">''</font> <i>(length=0)</i>
+      5 <font color="#888a85">=&gt;</font> <small>string</small> <font color="#cc0000">''</font> <i>(length=0)</i>
+      6 <font color="#888a85">=&gt;</font> <small>string</small> <font color="#cc0000">''</font> <i>(length=0)</i>
+  'currentPage' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">1</font>
+  'currentLayer' <font color="#888a85">=&gt;</font> <small>float</small> <font color="#f57900">1</font>
+  'layerSize' <font color="#888a85">=&gt;</font> <small>int</small> <font color="#4e9a06">5</font></code></pre>
+<p>事實上為了操作方便，滑動式分頁器除了固定範圍內的頁碼之外，還會自動加入前一層最後一頁或下一層的第一頁，端看目前所在頁次而決定。</p>
+<h3 id="custom_pager">7.2.3 自訂分頁器</h3>
+<p>一般來說，基本分頁器和滑動式分頁器已經能夠應付多數狀況下的分頁。但是如果預設的分頁實作讓你不是很滿意時，還是可以透過繼承 <code>Wacow_Pagination_Pager_Abstract</code> 這個抽象類別來實作你自己的分頁器。 </p>
+<pre><code>&lt;?php
+
+require_once 'Wacow/Pagination/Pager/Abstract.php';
+
+class MyPager extends Wabow_Pagination_Pager_Abstract
+{
+    // Your code here.
+}</code></pre>
+<p>一般來說會需要在產生頁碼列表頁時做一些手腳，那麼我們可以覆寫 <code>Wacow_Pagination_Pager_Abstract</code> 中的 <code>_buildPageList()</code> 函式：</p>
+<p>例如在 <code>Wacow_Pagination_Pager_Slide</code> 中是這麼做的： </p>
+<pre><code>    protected function _buildPageList()
+    {
+        $this-&gt;startPage = (1 &lt;= ($_s = ($this-&gt;currentLayer - 1) * $this-&gt;layerSize))
+                         ? $_s
+                         : 1;
+
+        $this-&gt;endPage   = ($this-&gt;totalPages &gt;= ($_e = ($this-&gt;currentLayer * $this-&gt;layerSize + 1)))
+                         ? $_e
+                         : $this-&gt;totalPages;
+
+        for ($i = $this-&gt;startPage; $i &lt;= $this-&gt;endPage; $i ++) {
+            $this-&gt;pageList[$i] = ($i == $this-&gt;currentPage)
+                                ? 'current'
+                                : '';
+        }
+    }</code></pre>
+<p>另外要注意的是，不要移除 <code>getInfo()</code> 函式原有應該輸出的項目，而是應該加入或修改。</p>
+<p>例如在 <code>Wacow_Pagination_Pager_Slide</code> 中是這麼做的： </p>
+<pre><code>    public function getInfo()
+    {
+        $info = parent::getInfo();
+        $info['currentLayer'] = $this-&gt;currentLayer;
+        $info['layerSize']    = $this-&gt;layerSize;
+        $info['startPage']    = $this-&gt;startPage;
+        $info['endPage']      = $this-&gt;endPage;
+        return $info;
+    }</code></pre>
+<p>這樣一來才能確保更換分頁器後，前端的顯示不會突然發生問題。</p>
+</body>
+</html>

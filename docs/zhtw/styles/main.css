@@ -1,0 +1,20 @@
+* {
+font-family: Arial, Helvetica, sans-serif;
+}
+
+ul.toc,
+ul.toc ul {
+list-style: none;
+}
+
+pre {
+font-family: "Courier New", Courier, monospace;
+margin: 10px;
+padding: 5px;
+border: 1px solid #CCC;
+background: #FFC;
+}
+
+code {
+font-size: 1em;
+}
