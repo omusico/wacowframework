@@ -13,15 +13,32 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Wacow
- * @package    Wacow
+ * @package    Wacow_Resource
  * @copyright
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
  */
 
 /**
+ * Zend_Cache
+ */
+require_once 'Zend/Cache.php';
+
+/**
+ * Zend_Db
+ */
+require_once 'Zend/Db.php';
+
+/**
+ * Zend_Config
+ */
+require_once 'Zend/Config.php';
+
+/**
+ * Create resource for web application.
+ *
  * @category   Wacow
- * @package    Wacow
+ * @package    Wacow_Resource
  * @copyright
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
@@ -127,11 +144,6 @@ final class Wacow_Resource
             $className = 'Zend_Config_' . $type;
             return new $className($path, $section);
         }
-//        if(!$cacheName || !$config = $this->frontCache->load($cacheName)) {
-//            $config = new Zend_Config_Ini($this->_configFilePath, $sectionName);
-//            $this->frontCache->save($config, $cacheName);
-//        }
-//        return $config;
     }
 
     /**
