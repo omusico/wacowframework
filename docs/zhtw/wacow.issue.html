@@ -34,5 +34,43 @@
 <li> 如何減少尋找時間？</li>
 <li> 不需在 config.ini 再寫入模組定義。</li>
 </ol>
+<h2>樣版</h2>
+<p>需要自訂一組樣版標籤來隱藏 Smarty 一些較為複雜的語法，並且在裡面直接與 Action Controller 溝通。 </p>
+<p>例如：</p>
+<pre>
+<strong>動態載入區塊</strong>
+&lt;wa:block file=&quot;/path/to/templatefile&quot; bind=&quot;method:test&quot; cachetime=&quot;200&quot; /&gt;
+
+<strong>連結</strong>
+&lt;wa:link path=&quot;/path/to/action&quot;&gt;Link Text&lt;/wa:link&gt;
+
+<strong>彈出視窗</strong>
+&lt;wa:popup iframe=&quot;yes&quot; src=&quot;/path/to/some.html&quot; width=&quot;200&quot; height=&quot;100&quot;&gt;Link Text&lt;/wa:popup&gt;
+
+<strong>表單 (自動與後端 PHP 程式驗證結合)</strong>
+&lt;wa:form action=&quot;/action&quot; method=&quot;post&quot;&gt;
+&lt;wa:text name=&quot;text1&quot; mutiple=&quot;yes&quot; /&gt;
+&lt;wa:select name=&quot;select1&quot; mutiple=&quot;yes&quot; bind=&quot;abc&quot; /&gt;
+&lt;wa:editable name=&quot;editable1&quot;&gt;Text&lt;/wa:editable&gt;
+&lt;wa:htmleditor name=&quot;html1&quot;&gt;&lt;/wa:htmleditor&gt;
+&lt;wa:downlist name=&quot;category1&quot;&gt;&lt;/wa:downlist&gt;
+&lt;wa:downlist name=&quot;category2&quot; bind=&quot;category1&quot;&gt;&lt;/wa:downlist&gt;
+&lt;/wa:form&gt;
+
+<strong>動態載入 JavaScript 及 CSS</strong>
+&lt;wa:js name=&quot;jquery.thickbox&quot; required=&quot;jquery&quot; /&gt; &lt;!-- 自動抓取 /public/scripts/jquery/thickbox.js --&gt;
+&lt;wa:css name=&quot;admin.user&quot; /&gt; &lt;!-- 自動抓取 /public/styles/admin/user.css --&gt;
+
+<strong>資料顯示</strong>
+&lt;wa:datagrid name=&quot;datagrid1&quot; bind=&quot;cars&quot;&gt;
+&lt;wa:column name=&quot;title&quot;&gt;
+Custom style of colunm
+&lt;/wa:column&gt;
+&lt;wa:function&gt;
+&lt;wa:link path=&quot;/add&quot;&gt;Add Row&lt;/wa:link&gt;
+&lt;/wa:function&gt;
+&lt;/wa:datagrid&gt;
+</pre>
+<p>&nbsp;</p>
 </body>
 </html>
