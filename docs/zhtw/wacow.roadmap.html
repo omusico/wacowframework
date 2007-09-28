@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Road Map</title>
+<link href="styles/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Road Map</h1>
+<ol class="toc">
+<li>主要核心
+<ol>
+<li>目錄結構</li>
+<li>Application</li>
+<li>Resource</li>
+<li>View Manager </li>
+<li>樣版語法</li>
+</ol>
+</li>
+<li>表單自動化
+<ol>
+<li>驗證系統</li>
+<li>DHTML 綁定 </li>
+<li>Ajax 綁定</li>
+</ol>
+</li>
+<li>後台管理
+<ol>
+<li>使用者管理</li>
+<li>角色管理</li>
+<li>模組管理</li>
+<li>權限管理</li>
+<li>樣式代換</li>
+</ol>
+</li>
+<li>輔助功能
+<ol>
+<li>檔案上傳助手</li>
+<li>縮圖助手</li>
+<li>版面管理員</li>
+<li>分頁助手</li>
+</ol>
+</li>
+<li>Tag 系統
+<ol>
+<li>後台 Tag 管理</li>
+<li>Tag 自動綁定</li>
+</ol>
+</li>
+<li>專案系統
+<ol>
+<li> 專案產生器</li>
+<li> 模組產生器</li>
+</ol>
+</li>
+</ol>
+<h2>主要核心</h2>
+<p>Wacow 主要核心在於包裝 Zend Framework ，使它能夠有建置專案的基本雛形。 </p>
+<h3>目錄結構</h3>
+<p>&nbsp;</p>
+<h3>Application</h3>
+<p>&nbsp;</p>
+<h3>Resource</h3>
+<p>&nbsp;</p>
+<h3>View 管理員 </h3>
+<p>主要功能有三：</p>
+<ul>
+<li>
+<p>依照是否為 Ajax Request 來建構對應的 View Object 。</p>
+</li>
+<li>
+<p>動態取得共用樣版。 </p>
+</li>
+<li>
+<p>Assign 需要給 JavaScript 的變數。 </p>
+</li>
+</ul>
+<h3>樣版語法</h3>
+<p>自訂一組樣版標籤來隱藏 Smarty 一些較為複雜的語法，並且在裡面直接與 Action Controller 溝通。 </p>
+<pre>
+<strong>動態載入區塊</strong>
+&lt;wa:block file=&quot;/path/to/templatefile&quot; bind=&quot;method:test&quot; cachetime=&quot;200&quot; /&gt;
+
+<strong>連結</strong>
+&lt;wa:link path=&quot;/path/to/action&quot;&gt;Link Text&lt;/wa:link&gt;
+
+<strong>彈出視窗</strong>
+&lt;wa:popup iframe=&quot;yes&quot; src=&quot;/path/to/some.html&quot; width=&quot;200&quot; height=&quot;100&quot;&gt;Link Text&lt;/wa:popup&gt;
+
+<strong>表單 (自動與後端 PHP 程式驗證結合)</strong>
+&lt;wa:form action=&quot;/action&quot; method=&quot;post&quot;&gt;
+&lt;wa:text name=&quot;text1&quot; mutiple=&quot;yes&quot; /&gt; // 文字欄位
+&lt;wa:select name=&quot;select1&quot; mutiple=&quot;yes&quot; bind=&quot;abc&quot; /&gt; // 下拉選單
+&lt;wa:editable name=&quot;editable1&quot;&gt;Text&lt;/wa:editable&gt; // 就地編輯
+&lt;wa:htmleditor name=&quot;html1&quot;&gt;&lt;/wa:htmleditor&gt; // HTML 編輯器
+&lt;wa:downlist name=&quot;category1&quot;&gt;&lt;/wa:downlist&gt; // 多層式動態下拉選單
+&lt;wa:downlist name=&quot;category2&quot; bind=&quot;category1&quot;&gt;&lt;/wa:downlist&gt;
+&lt;/wa:form&gt;
+
+<strong>動態載入 JavaScript 及 CSS</strong>
+&lt;wa:js name=&quot;jquery.thickbox&quot; required=&quot;jquery&quot; /&gt; // 自動抓取 /public/scripts/jquery/thickbox.js
+&lt;wa:css name=&quot;admin.user&quot; /&gt; // 自動抓取 /public/styles/admin/user.css
+
+<strong>資料顯示</strong>
+&lt;wa:datagrid name=&quot;datagrid1&quot; bind=&quot;cars&quot;&gt;
+&lt;wa:column name=&quot;title&quot;&gt;
+Custom style of colunm
+&lt;/wa:column&gt;
+&lt;wa:function&gt;
+&lt;wa:link path=&quot;/add&quot;&gt;Add Row&lt;/wa:link&gt;
+&lt;/wa:function&gt;
+&lt;/wa:datagrid&gt;
+</pre>
+<p>另外是 Head 的部份，要能夠把動態載入的 JavaScript 和 CSS 變成 HTML 語法。 </p>
+<h2>表單自動化</h2>
+<h3>  驗證系統</h3>
+<p>&nbsp;</p>
+<h3> DHTML 綁定</h3>
+<p>&nbsp;</p>
+<h3> Ajax 綁定 </h3>
+<p>&nbsp;</p>
+<h2>後端管理平台</h2>
+<p>後端管理平台也是 Wacow 主要重點之一，它提供一般專案常用的後台管理機制，以省去從頭打造的時間。 </p>
+<h3>使用者管理</h3>
+<p>&nbsp;</p>
+<h3>角色管理</h3>
+<p>&nbsp;</p>
+<h3>模組管理</h3>
+<p>&nbsp;</p>
+<h3>權限管理</h3>
+<p>&nbsp;</p>
+<h3>Theme 代換</h3>
+<p>Theme 包含 CSS 、 JavaScript 及 Image 等，預設為 wacow 。</p>
+<p>Theme 要能向樣版註冊會用到的 CSS 和 JavaScript 的能力，其中包含對 IE6 的判斷。</p>
+<h2>輔助功能</h2>
+<p>&nbsp;</p>
+<h3>檔案上傳助手</h3>
+<p>&nbsp;</p>
+<h3>縮圖助手</h3>
+<p>&nbsp;</p>
+<h3>版面管理員</h3>
+<p>&nbsp;</p>
+<h3>分頁助手</h3>
+<p>&nbsp;</p>
+<h2>Tag 系統</h2>
+<p>&nbsp;</p>
+<h3>後台 Tag 管理</h3>
+<p>&nbsp;</p>
+<h3>Tag 自動綁定</h3>
+<p>&nbsp;</p>
+<h2>專案系統</h2>
+<p>&nbsp;</p>
+<h3> 專案產生器</h3>
+<p>&nbsp;</p>
+<h3>模組產生器</h3>
+<p>&nbsp;</p>
+</body>
+</html>
