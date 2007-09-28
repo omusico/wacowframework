@@ -58,11 +58,34 @@
 <h2>主要核心</h2>
 <p>Wacow 主要核心在於包裝 Zend Framework ，使它能夠有建置專案的基本雛形。 </p>
 <h3>目錄結構</h3>
-<p>&nbsp;</p>
+<p>Wacow 專案的既定目錄結構如下： </p>
+<pre>project/ ---------------------- 專案目錄
+        app/ ------------------ 應用程式目錄
+            base/ ------------- 基本 Controller 及 Model
+                 Controller/
+                 Model/
+            etc/ -------------- 設定
+            lib/ -------------- 第三方類別庫
+                PHPMailer/
+                Smarty/
+                Wacow/
+                Zend/
+            mod/ -------------- 模組
+                default/
+                admin/
+            sql/ -------------- 存放 SQL 指令
+            tmp/ -------------- 暫存資料夾
+        debug/ ---------------- 除錯用
+        doc/ ------------------ 文件
+        pub/ ------------------ 公開
+            css/ -------------- CSS
+            img/ -------------- 圖片
+            js/ --------------- JavaScript
+            lib/ -------------- 第三方 JS 庫
+            theme/ ------------ 後台佈景主題
+        index.php ------------- Bootstrap</pre>
 <h3>Application</h3>
-<p>&nbsp;</p>
-<h3>Resource</h3>
-<p>&nbsp;</p>
+<p>提供專案應用程式的目錄管理以及相關物件的取得，例如資料庫轉接器、快取及設定檔物件等。</p>
 <h3>View 管理員 </h3>
 <p>主要功能有三：</p>
 <ul>
@@ -76,50 +99,60 @@
 <p>Assign 需要給 JavaScript 的變數。 </p>
 </li>
 </ul>
+<h3>DataSet</h3>
+<p>主要為資料庫、 RSS 或其他可被分頁的資料集。作法要考慮以下兩點：</p>
+<ol>
+<li>結合分頁介面並且取得關連欄位，所以在 getIterator 時要能呼叫 callback 來塞入關連欄位。可參考 ocar/seller/index 裡，找出車商對應的車輛的作法。</li>
+<li>可能會搭配 Ajax ，因此就沒辦法在 Web Compnent 裡面做分頁。 </li>
+</ol>
 <h3>樣版語法</h3>
 <p>自訂一組樣版標籤來隱藏 Smarty 一些較為複雜的語法，並且在裡面直接與 Action Controller 溝通。 </p>
-<pre>
-<strong>動態載入區塊</strong>
-&lt;wa:block file=&quot;/path/to/templatefile&quot; bind=&quot;method:test&quot; cachetime=&quot;200&quot; /&gt;
-
-<strong>連結</strong>
-&lt;wa:link path=&quot;/path/to/action&quot;&gt;Link Text&lt;/wa:link&gt;
-
-<strong>彈出視窗</strong>
-&lt;wa:popup iframe=&quot;yes&quot; src=&quot;/path/to/some.html&quot; width=&quot;200&quot; height=&quot;100&quot;&gt;Link Text&lt;/wa:popup&gt;
-
-<strong>表單 (自動與後端 PHP 程式驗證結合)</strong>
-&lt;wa:form action=&quot;/action&quot; method=&quot;post&quot;&gt;
+<h4>動態載入區塊</h4>
+<pre>&lt;wa:block file=&quot;/path/to/templatefile&quot; bind=&quot;method:test&quot; cachetime=&quot;200&quot; /&gt;</pre>
+<h4>連結</h4>
+<pre>&lt;wa:link path=&quot;/path/to/action&quot;&gt;Link Text&lt;/wa:link&gt;</pre>
+<h4>彈出視窗</h4>
+<pre>&lt;wa:popup iframe=&quot;yes&quot; src=&quot;/path/to/some.html&quot; width=&quot;200&quot; height=&quot;100&quot;&gt;Link Text&lt;/wa:popup&gt;</pre>
+<h4>表單</h4>
+<pre>&lt;wa:form action=&quot;/action&quot; method=&quot;post&quot;&gt;
 &lt;wa:text name=&quot;text1&quot; mutiple=&quot;yes&quot; /&gt; // 文字欄位
 &lt;wa:select name=&quot;select1&quot; mutiple=&quot;yes&quot; bind=&quot;abc&quot; /&gt; // 下拉選單
 &lt;wa:editable name=&quot;editable1&quot;&gt;Text&lt;/wa:editable&gt; // 就地編輯
 &lt;wa:htmleditor name=&quot;html1&quot;&gt;&lt;/wa:htmleditor&gt; // HTML 編輯器
 &lt;wa:downlist name=&quot;category1&quot;&gt;&lt;/wa:downlist&gt; // 多層式動態下拉選單
 &lt;wa:downlist name=&quot;category2&quot; bind=&quot;category1&quot;&gt;&lt;/wa:downlist&gt;
-&lt;/wa:form&gt;
-
-<strong>動態載入 JavaScript 及 CSS</strong>
-&lt;wa:js name=&quot;jquery.thickbox&quot; required=&quot;jquery&quot; /&gt; // 自動抓取 /public/scripts/jquery/thickbox.js
-&lt;wa:css name=&quot;admin.user&quot; /&gt; // 自動抓取 /public/styles/admin/user.css
-
-<strong>資料顯示</strong>
-&lt;wa:datagrid name=&quot;datagrid1&quot; bind=&quot;cars&quot;&gt;
+&lt;/wa:form&gt;</pre>
+<h4>動態載入 JavaScript 及 CSS</h4>
+<pre>&lt;wa:js name=&quot;jquery.thickbox&quot; required=&quot;jquery&quot; /&gt; // 自動抓取 /public/scripts/jquery/thickbox.js
+&lt;wa:css name=&quot;admin.user&quot; /&gt; // 自動抓取 /public/styles/admin/user.css</pre>
+<h4>資料顯示 (含分頁) </h4>
+<pre>&lt;wa:datagrid name=&quot;datagrid1&quot; bind=&quot;cars&quot;&gt;
 &lt;wa:column name=&quot;title&quot;&gt;
 Custom style of colunm
 &lt;/wa:column&gt;
 &lt;wa:function&gt;
 &lt;wa:link path=&quot;/add&quot;&gt;Add Row&lt;/wa:link&gt;
 &lt;/wa:function&gt;
-&lt;/wa:datagrid&gt;
-</pre>
+&lt;/wa:datagrid&gt;</pre>
+<h4>分頁介面</h4>
+<pre>&lt;wa:page name=&quot;page&quot; type=&quot;slide&quot; bind=&quot;AnyDataSet&quot; pagesize=&quot;config:search:pageSize&quot; layersize=&quot;config:search:layerSize&quot; style=&quot;digg&quot; /&gt; </pre>
 <p>另外是 Head 的部份，要能夠把動態載入的 JavaScript 和 CSS 變成 HTML 語法。 </p>
 <h2>表單自動化</h2>
-<h3>  驗證系統</h3>
-<p>&nbsp;</p>
-<h3> DHTML 綁定</h3>
-<p>&nbsp;</p>
-<h3> Ajax 綁定 </h3>
-<p>&nbsp;</p>
+<p>表單自動化主要目標是在 Controller 建立驗證機制，然後在樣版的地方以樣版語法來連結以提供 Ajax 驗證的效果。 </p>
+<h3>  Ajax 驗證系統</h3>
+<p>前端表單所有欄位，以 Ajax 送到後端驗證。當沒有開啟 JavaScript 時，則改用 FlashMessanger 來代替。 </p>
+<h3> 表單元件</h3>
+<p>主要包含：</p>
+<ul>
+<li>文字欄位 (可多行) </li>
+<li>密碼欄位</li>
+<li>下拉選單</li>
+<li>數字範圍選擇器</li>
+<li>日曆選擇器</li>
+<li>日期區間選擇器</li>
+<li>顏色選擇器</li>
+<li>檔案上傳</li>
+</ul>
 <h2>後端管理平台</h2>
 <p>後端管理平台也是 Wacow 主要重點之一，它提供一般專案常用的後台管理機制，以省去從頭打造的時間。 </p>
 <h3>使用者管理</h3>
@@ -134,15 +167,15 @@ Custom style of colunm
 <p>Theme 包含 CSS 、 JavaScript 及 Image 等，預設為 wacow 。</p>
 <p>Theme 要能向樣版註冊會用到的 CSS 和 JavaScript 的能力，其中包含對 IE6 的判斷。</p>
 <h2>輔助功能</h2>
-<p>&nbsp;</p>
+<p>以下的 Action Helper 是常在 Action Controller 裡使用的功能： </p>
 <h3>檔案上傳助手</h3>
-<p>&nbsp;</p>
+<p>搭配檔案上傳的表單元件，可以決定上傳的檔案類型。然後上傳檔案後將這些檔案存放在資料庫中，讓其他類型的資料可以連結利用。</p>
 <h3>縮圖助手</h3>
-<p>&nbsp;</p>
+<p>提供縮圖功能，並且可決定是不是要補白。</p>
 <h3>版面管理員</h3>
-<p>&nbsp;</p>
+<p>可以指定主樣版，並且提供區塊快取功能。</p>
 <h3>分頁助手</h3>
-<p>&nbsp;</p>
+<p>協助開發者在 Action 中建立 Pager ，並且在 View 中。 </p>
 <h2>Tag 系統</h2>
 <p>&nbsp;</p>
 <h3>後台 Tag 管理</h3>
