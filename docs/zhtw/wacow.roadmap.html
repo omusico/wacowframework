@@ -12,6 +12,7 @@
 <ol class="toc">
 <li><a href="#core">主要核心</a>
 <ol>
+<li>階層式開發</li>
 <li>目錄結構</li>
 <li>Application</li>
 <li>Resource</li>
@@ -28,10 +29,10 @@
 </li>
 <li><a href="#administer">後台管理</a>
 <ol>
-<li>後台公告系統</li>
+<li>後台公告訊息系統</li>
 <li>使用者管理</li>
 <li>角色管理</li>
-<li>模組管理</li>
+<li>後台模組管理</li>
 <li>權限管理</li>
 <li>樣式代換</li>
 </ol>
@@ -63,11 +64,27 @@
 </ol>
 <h2 id="core">主要核心</h2>
 <p>Wacow 主要核心在於包裝 Zend Framework ，使它能夠有建置專案的基本雛形。 </p>
+<h3>階層式開發</h3>
+<p><img src="images/n-tier.png" alt="N Tiers" width="300" height="300" /></p>
+<ul>
+<li>
+<p>Zend ：提供基本 MVC 架構。</p>
+</li>
+<li>
+<p>Wacow ：提供 Layout 及 View 動態切換功能。</p>
+</li>
+<li>
+<p>專案共用層：提供專案建立相關的專屬功能。</p>
+</li>
+<li>
+<p>模組層：建立模組用。 </p>
+</li>
+</ul>
 <h3>目錄結構</h3>
 <p>Wacow 專案的既定目錄結構如下： </p>
 <pre>project/ ---------------------- 專案目錄
         app/ ------------------ 應用程式目錄
-            base/ ------------- 基本 Controller 及 Model
+            base/ ------------- 專案基本 Controller 及 Model
                  Controller/
                  Model/
             etc/ -------------- 設定
@@ -91,7 +108,15 @@
             theme/ ------------ 後台佈景主題
         index.php ------------- Bootstrap</pre>
 <h3>Application</h3>
-<p>提供專案應用程式的目錄管理以及相關物件的取得，例如資料庫轉接器、快取及設定檔物件等。</p>
+<p>Aplication 分為兩層：</p>
+<ul>
+<li>
+<p>Wacow 層：建立 Front Controller 執行流程，並提供專案應用程式的目錄管理以及相關物件的取得，例如資料庫轉接器、快取及設定檔物件等。。 </p>
+</li>
+<li>
+<p>專案共用層：處理由專案提供的設定，不汙染 Wacow 層。 </p>
+</li>
+</ul>
 <h3>View 管理員 </h3>
 <p>主要功能有三：</p>
 <ul>
@@ -161,16 +186,30 @@ Custom style of colunm
 </ul>
 <h2 id="administer">後端管理平台</h2>
 <p>後端管理平台也是 Wacow 主要重點之一，它提供一般專案常用的後台管理機制，以省去從頭打造的時間。 </p>
-<h3>後台公告系統</h3>
-<p>&nbsp;</p>
+<h3>後台公告訊息系統</h3>
+<ol>
+<li>使用者登入後台，首頁顯示相關公告。</li>
+<li>使用者登入後台，首頁跳出私人訊息。</li>
+</ol>
 <h3>使用者管理</h3>
-<p>&nbsp;</p>
+<ul>
+<li>可以新增、修改及刪除使用者及其相關資訊。</li>
+<li>可以決定使用者的角色。</li>
+</ul>
 <h3>角色管理</h3>
-<p>&nbsp;</p>
-<h3>模組管理</h3>
-<p>&nbsp;</p>
+<ul>
+<li>可以新增、修改及刪除角色。</li>
+<li>角色可以歸屬於另一個角色 (即群組) 。</li>
+<li>預設角色有：系統管理員、使用者。</li>
+</ul>
+<h3>後台模組管理</h3>
+<p>後台模組與 Zend Framework 所定義的模組是不同的，例如上面提供的<strong>使用者管理</strong>、<strong>角色管理</strong>等都是屬於後台模組。</p>
+<ul>
+<li>可以新增、修改及刪除後台模組。</li>
+<li>模組可以定義有哪些權限。 </li>
+</ul>
 <h3>權限管理</h3>
-<p>&nbsp;</p>
+<p>權限管理主要是設定<strong>角色</strong>與<strong>後台模組</strong>之間的權限關係，</p>
 <h3>Theme 代換</h3>
 <p>Theme 包含 CSS 、 JavaScript 及 Image 等，預設為 wacow 。</p>
 <p>Theme 要能向樣版註冊會用到的 CSS 和 JavaScript 的能力，其中包含對 IE6 的判斷。</p>
