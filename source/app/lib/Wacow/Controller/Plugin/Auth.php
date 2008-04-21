@@ -41,7 +41,7 @@ class Wacow_Controller_Plugin_Auth extends Zend_Controller_Plugin_Abstract
      *
      * @var Zend_Auth
      */
-    private $_auth;
+    private static $_auth;
 
     /**
      * Acl object
@@ -58,12 +58,26 @@ class Wacow_Controller_Plugin_Auth extends Zend_Controller_Plugin_Abstract
     private $_defaultRoleId = null;
 
     /**
+     * Namespace for auth.
+     *
+     * @var string
+     */
+    private $_namespace = ':moduleName';
+
+    /**
+     * Storage for auth.
+     *
+     * @var Zend_Auth_Storage_Interface
+     */
+    private $_storage = null;
+
+    /**
      * Login
      *
      * @var array
      */
     private $_loginHandler = array(
-        'module'     => 'default',
+        'module'     => ':moduleName',
         'controller' => 'user',
         'action'     => 'login'
     );
@@ -88,11 +102,15 @@ class Wacow_Controller_Plugin_Auth extends Zend_Controller_Plugin_Abstract
      */
     public function __construct(Zend_Acl $acl, array $settings = array())
     {
-        $this->_auth = Zend_Auth::getInstance();
+        self::$_auth = Zend_Auth::getInstance();
         $this->_acl = $acl;
 
         if (array_key_exists('defaultRoleId', $settings)) {
             $this->_defaultRoleId = $settings['defaultRoleId'];
+        }
+
+        if (array_key_exists('namespace', $settings)) {
+            $this->_namespace = $settings['namespace'];
         }
 
         if (array_key_exists('loginHandler', $settings)) {
@@ -101,6 +119,11 @@ class Wacow_Controller_Plugin_Auth extends Zend_Controller_Plugin_Abstract
 
         if (array_key_exists('denyHandler', $settings)) {
             $this->_denyHandler = $settings['denyHandler'];
+        }
+
+        if (array_key_exists('storage', $settings)
+                && $settings['storage'] instanceof Zend_Auth_Storage_Interface) {
+            $this->_storage = $settings['storage'];
         }
     }
 
@@ -111,8 +134,15 @@ class Wacow_Controller_Plugin_Auth extends Zend_Controller_Plugin_Abstract
      */
     public function dispatchLoopStartup(Zend_Controller_Request_Abstract $request)
     {
-        if ($this->_auth->hasIdentity()) {
-            $userData = $this->_auth->getIdentity();
+        if (null === $this->_storage) {
+            $app = Wacow_Application::getInstance();
+            $namespace = strtoupper($app->name . '_' . $this->_translateName($this->_namespace));
+            $this->_storage = new Zend_Auth_Storage_Session($namespace);
+        }
+        self::$_auth->setStorage($this->_storage);
+
+        if (self::$_auth->hasIdentity()) {
+            $userData = self::$_auth->getIdentity();
             $roleId = $userData->roleId;
         } else {
             $roleId = $this->_defaultRoleId;
@@ -128,18 +158,52 @@ class Wacow_Controller_Plugin_Auth extends Zend_Controller_Plugin_Abstract
         }
 
         if (!$this->_acl->isAllowed($roleId, $resource, $actionName)) {
-            if (!$this->_auth->hasIdentity()) {
-                $moduleName     = $this->_loginHandler['module'];
-                $controllerName = $this->_loginHandler['controller'];
-                $actionName     = $this->_loginHandler['action'];
+            if (!self::$_auth->hasIdentity()) {
+                $moduleName     = $this->_translateName($this->_loginHandler['module']);
+                $controllerName = $this->_translateName($this->_loginHandler['controller']);
+                $actionName     = $this->_translateName($this->_loginHandler['action']);
             } else {
-                $moduleName     = $this->_denyHandler['module'];
-                $controllerName = $this->_denyHandler['controller'];
-                $actionName     = $this->_denyHandler['action'];
+                $moduleName     = $this->_translateName($this->_denyHandler['module']);
+                $controllerName = $this->_translateName($this->_denyHandler['controller']);
+                $actionName     = $this->_translateName($this->_denyHandler['action']);
             }
         }
         $request->setModuleName($moduleName);
         $request->setControllerName($controllerName);
         $request->setActionName($actionName);
+    }
+
+    /**
+     * Get auth object
+     *
+     * @return Zend_Auth
+     */
+    public function getAuth()
+    {
+        return self::$_auth;
+    }
+
+    /**
+     * Translate name
+     *
+     * @param string $name
+     * @return string
+     */
+    protected function _translateName($name)
+    {
+        switch ($name) {
+        	case ':moduleName':
+        		return $this->getRequest()->getModuleName();
+        		break;
+        	case ':controllerName':
+        		return $this->getRequest()->getControllerName();
+        		break;
+        	case ':actionName':
+        		return $this->getRequest()->getActionName();
+        		break;
+        	default:
+        	    return $name;
+        		break;
+        }
     }
 }

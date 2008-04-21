@@ -37,10 +37,7 @@ require_once 'Zend/Controller/Plugin/Abstract.php';
 class Wacow_Controller_Plugin_PathHandler extends Zend_Controller_Plugin_Abstract
 {
     /**
-     * Decide the type of view object
-     *
-     * If the requrest is got from ajax, then create an Wacow_View_Ajax object for render.
-     * Otherwise we use the Wacow_View_Html (Smarty) for render.
+     * Add Module name traslation to translator.
      *
      * @param Wacow_Controller_Action $actionController
      * @param Zend_Controller_Request_Abstract $request
@@ -49,5 +46,14 @@ class Wacow_Controller_Plugin_PathHandler extends Zend_Controller_Plugin_Abstrac
     {
         $translator = Wacow_Application::getPathTranslator();
         $translator->addPathMapping(':moduleDir', $translator->getRuntimePath(':modulePath') . '/' . $this->_request->getModuleName());
+    }
+
+    /**
+     * Add include path of models by module.
+     *
+     */
+    public function preDispatch()
+    {
+        Wacow_Application::getInstance()->addIncludePath(':moduleDir/models');
     }
 }
