@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>File Source for function.css.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+						<h1>Source for file function.css.php</h1>
+<p>Documentation is available at <a href="../Wacow_View/Wacow_View_Html_Smarty/_View---Html---Smarty---plugins---function.css.php.html">function.css.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-doc">&nbsp;*&nbsp;Smarty&nbsp;plugin</span></div></li>
+<li><div class="src-line"><a name="a4"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-doc">&nbsp;*&nbsp;Load&nbsp;CSS.</span></div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a7"></a><span class="src-doc">&nbsp;*&nbsp;Examples:</span></div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-doc">&nbsp;*&nbsp;&lt;code&gt;</span></div></li>
+<li><div class="src-line"><a name="a9"></a><span class="src-doc">&nbsp;*&nbsp;Load&nbsp;custom&nbsp;style&nbsp;sheet&nbsp;which&nbsp;located&nbsp;/pub/css/admin/user.css</span></div></li>
+<li><div class="src-line"><a name="a10"></a><span class="src-doc">&nbsp;*&nbsp;&lt;wa:css&nbsp;href=&quot;/css/admin/user.css&quot;&nbsp;/&gt;</span></div></li>
+<li><div class="src-line"><a name="a11"></a><span class="src-doc">&nbsp;*&nbsp;convert&nbsp;to:</span></div></li>
+<li><div class="src-line"><a name="a12"></a><span class="src-doc">&nbsp;*&nbsp;&lt;link&nbsp;rel=&quot;stylesheet&quot;&nbsp;type=&quot;text/css&quot;&nbsp;href=&quot;/pub/css/admin/user.css&quot;&nbsp;media=&quot;all&quot;&nbsp;/&gt;</span></div></li>
+<li><div class="src-line"><a name="a13"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a14"></a><span class="src-doc">&nbsp;*&nbsp;Load&nbsp;style&nbsp;sheet&nbsp;of&nbsp;jquery&nbsp;thickbox&nbsp;for&nbsp;screen</span></div></li>
+<li><div class="src-line"><a name="a15"></a><span class="src-doc">&nbsp;*&nbsp;&lt;wa:css&nbsp;href=&quot;/lib/jquery/thickbox.css&quot;&nbsp;media=&quot;screen&quot;&nbsp;/&gt;</span></div></li>
+<li><div class="src-line"><a name="a16"></a><span class="src-doc">&nbsp;*&nbsp;convert&nbsp;to:</span></div></li>
+<li><div class="src-line"><a name="a17"></a><span class="src-doc">&nbsp;*&nbsp;&lt;link&nbsp;rel=&quot;stylesheet&quot;&nbsp;type=&quot;text/css&quot;&nbsp;href=&quot;/pub/lib/jquery/thickbox.css&quot;&nbsp;media=&quot;screen&quot;&nbsp;/&gt;</span></div></li>
+<li><div class="src-line"><a name="a18"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a19"></a><span class="src-doc">&nbsp;*&nbsp;Load&nbsp;external&nbsp;javascript</span></div></li>
+<li><div class="src-line"><a name="a20"></a><span class="src-doc">&nbsp;*&nbsp;&lt;wa:css&nbsp;href=&quot;http://example.com/example.css&quot;&nbsp;/&gt;</span></div></li>
+<li><div class="src-line"><a name="a21"></a><span class="src-doc">&nbsp;*&nbsp;convert&nbsp;to:</span></div></li>
+<li><div class="src-line"><a name="a22"></a><span class="src-doc">&nbsp;*&nbsp;&lt;link&nbsp;rel=&quot;stylesheet&quot;&nbsp;type=&quot;text/css&quot;&nbsp;href=&quot;http://example.com/example.css&quot;&nbsp;media=&quot;all&quot;&nbsp;/&gt;</span></div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a24"></a><span class="src-doc">&nbsp;*&nbsp;Load&nbsp;IE&nbsp;only&nbsp;style&nbsp;sheet</span></div></li>
+<li><div class="src-line"><a name="a25"></a><span class="src-doc">&nbsp;*&nbsp;&lt;wa:css&nbsp;href=&quot;http://example.com/example.css&quot;&nbsp;ie=&quot;yes&quot;&nbsp;/&gt;</span></div></li>
+<li><div class="src-line"><a name="a26"></a><span class="src-doc">&nbsp;*&nbsp;convert&nbsp;to:</span></div></li>
+<li><div class="src-line"><a name="a27"></a><span class="src-doc">&nbsp;*&nbsp;&lt;!--[if&nbsp;IE]&gt;</span></div></li>
+<li><div class="src-line"><a name="a28"></a><span class="src-doc">&nbsp;*&nbsp;&lt;link&nbsp;rel=&quot;stylesheet&quot;&nbsp;type=&quot;text/css&quot;&nbsp;href=&quot;http://example.com/example.css&quot;&nbsp;media=&quot;all&quot;&nbsp;/&gt;</span></div></li>
+<li><div class="src-line"><a name="a29"></a><span class="src-doc">&nbsp;*&nbsp;&lt;![endif]--&gt;</span></div></li>
+<li><div class="src-line"><a name="a30"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a31"></a><span class="src-doc">&nbsp;*&nbsp;Load&nbsp;javascript&nbsp;on&nbsp;IE&nbsp;which&nbsp;version&nbsp;less&nbsp;than&nbsp;7</span></div></li>
+<li><div class="src-line"><a name="a32"></a><span class="src-doc">&nbsp;*&nbsp;&lt;wa:css&nbsp;href=&quot;/theme/wacow/style_ie.css&quot;&nbsp;ie=&quot;yes&quot;&nbsp;version=&quot;lt&nbsp;7&quot;&nbsp;/&gt;</span></div></li>
+<li><div class="src-line"><a name="a33"></a><span class="src-doc">&nbsp;*&nbsp;&lt;!--[if&nbsp;lt&nbsp;IE&nbsp;7]&gt;</span></div></li>
+<li><div class="src-line"><a name="a34"></a><span class="src-doc">&nbsp;*&nbsp;&lt;link&nbsp;rel=&quot;stylesheet&quot;&nbsp;type=&quot;text/css&quot;&nbsp;href=&quot;/pub/theme/wacow/style_ie.css&quot;&nbsp;media=&quot;all&quot;&nbsp;/&gt;</span></div></li>
+<li><div class="src-line"><a name="a35"></a><span class="src-doc">&nbsp;*&nbsp;&lt;![endif]--&gt;</span></div></li>
+<li><div class="src-line"><a name="a36"></a><span class="src-doc">&nbsp;*&nbsp;&lt;/code&gt;</span></div></li>
+<li><div class="src-line"><a name="a37"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a38"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wacow_View</span></div></li>
+<li><div class="src-line"><a name="a39"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@subpackage</span><span class="src-doc">&nbsp;&nbsp;Wacow_View_Html_Smarty</span></div></li>
+<li><div class="src-line"><a name="a40"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Id:&nbsp;function.css.php&nbsp;405&nbsp;2008-04-20&nbsp;02:38:02Z&nbsp;jaceju&nbsp;$</span></div></li>
+<li><div class="src-line"><a name="a41"></a><span class="src-doc">&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a42"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a43"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a44"></a><span class="src-doc">&nbsp;*&nbsp;smarty_function_css</span></div></li>
+<li><div class="src-line"><a name="a45"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a46"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">array&nbsp;</span><span class="src-doc-var">$params&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a47"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">Smarty&nbsp;</span><span class="src-doc-var">$smarty&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a48"></a><span class="src-doc">&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a49"></a><span class="src-key">function&nbsp;</span><a href="../Wacow_View/Wacow_View_Html_Smarty/_View---Html---Smarty---plugins---function.css.php.html#functionsmarty_function_css">smarty_function_css</a><span class="src-sym">(</span><span class="src-key">array&nbsp;</span><span class="src-var">$params</span><span class="src-sym">,&nbsp;</span><span class="src-id">Smarty&nbsp;</span><span class="src-sym">&amp;</span><span class="src-var">$smarty</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a50"></a><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a51"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-inc">require_once&nbsp;</span><span class="src-var">$smarty</span><span class="src-sym">-&gt;</span><span class="src-id">_get_plugin_filepath</span><span class="src-sym">(</span><span class="src-str">'function'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'js'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a52"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a53"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$view&nbsp;</span>=&nbsp;<span class="src-var">$smarty</span><span class="src-sym">-&gt;</span><span class="src-id">_tpl_vars</span><span class="src-sym">[</span><span class="src-str">'this'</span><span class="src-sym">]</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a54"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a55"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-sym">!</span>isset<span class="src-sym">(</span><span class="src-var">$params</span><span class="src-sym">[</span><span class="src-str">'href'</span><span class="src-sym">]</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$_smarty</span><span class="src-sym">-&gt;</span><a href="http://www.php.net/trigger_error">trigger_error</a><span class="src-sym">(</span><span class="src-str">&quot;css:&nbsp;missing&nbsp;'href'&nbsp;parameter&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-id">E_USER_ERROR</span><span class="src-sym">,&nbsp;</span>__FILE__<span class="src-sym">,&nbsp;</span>__LINE__<span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a57"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a58"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a59"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a60"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;set&nbsp;variables</span></div></li>
+<li><div class="src-line"><a name="a61"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$href&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>=&nbsp;<a href="http://www.php.net/trim">trim</a><span class="src-sym">(</span><span class="src-var">$params</span><span class="src-sym">[</span><span class="src-str">'href'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a62"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$media&nbsp;&nbsp;&nbsp;&nbsp;</span>=&nbsp;<span class="src-sym">(</span>isset<span class="src-sym">(</span><span class="src-var">$params</span><span class="src-sym">[</span><span class="src-str">'media'</span><span class="src-sym">]</span><span class="src-sym">)&nbsp;</span>&amp;&amp;&nbsp;<span class="src-var">$_tmp&nbsp;</span>=&nbsp;<a href="http://www.php.net/trim">trim</a><span class="src-sym">(</span><a href="http://www.php.net/strtolower">strtolower</a><span class="src-sym">(</span><span class="src-var">$params</span><span class="src-sym">[</span><span class="src-str">'media'</span><span class="src-sym">]</span><span class="src-sym">)))</span></div></li>
+<li><div class="src-line"><a name="a63"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;<span class="src-var">$_tmp</span></div></li>
+<li><div class="src-line"><a name="a64"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<span class="src-str">'all'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a65"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$external&nbsp;</span>=&nbsp;(bool)&nbsp;<a href="http://www.php.net/preg_match">preg_match</a><span class="src-sym">(</span><span class="src-str">'/^(http|https):\/\//'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$href</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a66"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$ie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>=&nbsp;<span class="src-sym">(</span>isset<span class="src-sym">(</span><span class="src-var">$params</span><span class="src-sym">[</span><span class="src-str">'ie'</span><span class="src-sym">]</span><span class="src-sym">)&nbsp;</span>&amp;&amp;&nbsp;<span class="src-var">$_tmp&nbsp;</span>=&nbsp;<a href="http://www.php.net/trim">trim</a><span class="src-sym">(</span><a href="http://www.php.net/strtolower">strtolower</a><span class="src-sym">(</span><span class="src-var">$params</span><span class="src-sym">[</span><span class="src-str">'ie'</span><span class="src-sym">]</span><span class="src-sym">)))</span></div></li>
+<li><div class="src-line"><a name="a67"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;<span class="src-sym">(</span><span class="src-str">'yes'&nbsp;</span>==&nbsp;<span class="src-var">$_tmp</span><span class="src-sym">)&nbsp;</span>?&nbsp;<span class="src-str">'IE'&nbsp;</span>:&nbsp;<span class="src-id">null</span></div></li>
+<li><div class="src-line"><a name="a68"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<span class="src-str">'none'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a69"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$version&nbsp;&nbsp;</span>=&nbsp;isset<span class="src-sym">(</span><span class="src-var">$params</span><span class="src-sym">[</span><span class="src-str">'version'</span><span class="src-sym">]</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a70"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;<a href="http://www.php.net/trim">trim</a><span class="src-sym">(</span><a href="http://www.php.net/strtolower">strtolower</a><span class="src-sym">(</span><span class="src-var">$params</span><span class="src-sym">[</span><span class="src-str">'version'</span><span class="src-sym">]</span><span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a71"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<span class="src-id">null</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a72"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a73"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;process&nbsp;javascript&nbsp;for&nbsp;IE</span></div></li>
+<li><div class="src-line"><a name="a74"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-var">$ie&nbsp;</span>&amp;&amp;&nbsp;<span class="src-var">$version</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a75"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/preg_match">preg_match</a><span class="src-sym">(</span><span class="src-str">'/^([a-z]+)\s+([0-9]+)$/'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$version</span><span class="src-sym">,&nbsp;</span><span class="src-var">$matches</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a76"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$ie&nbsp;</span>=&nbsp;<span class="src-var">$matches</span><span class="src-sym">[</span><span class="src-num">1</span><span class="src-sym">]&nbsp;</span>.&nbsp;<span class="src-str">'&nbsp;'&nbsp;</span>.&nbsp;<span class="src-var">$ie&nbsp;</span>.&nbsp;<span class="src-str">'&nbsp;'&nbsp;</span>.&nbsp;<span class="src-var">$matches</span><span class="src-sym">[</span><span class="src-num">2</span><span class="src-sym">]</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a77"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a78"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-sym">!</span>isset<span class="src-sym">(</span><span class="src-var">$view</span><span class="src-sym">-&gt;</span><span class="src-id">loadedStyleSheets</span><span class="src-sym">[</span><span class="src-var">$ie</span><span class="src-sym">]</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a79"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$view</span><span class="src-sym">-&gt;</span><span class="src-id">loadedStyleSheets</span><span class="src-sym">[</span><span class="src-var">$ie</span><span class="src-sym">]&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a80"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a81"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a82"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;initital&nbsp;the&nbsp;path&nbsp;for&nbsp;javascript</span></div></li>
+<li><div class="src-line"><a name="a83"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$baseUrl&nbsp;</span>=&nbsp;<span class="src-var">$smarty</span><span class="src-sym">-&gt;</span><span class="src-id">_tpl_vars</span><span class="src-sym">[</span><span class="src-str">'frontendVars'</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-str">'baseUrl'</span><span class="src-sym">]</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a84"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$pubPath&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Wacow_Application/Wacow_Application.html">Wacow_Application</a></span><span class="src-sym">::</span><a href="../Wacow_Application/Wacow_Application.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">publicPath</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a85"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a86"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;load&nbsp;specified&nbsp;file</span></div></li>
+<li><div class="src-line"><a name="a87"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-sym">!</span>isset<span class="src-sym">(</span><span class="src-var">$view</span><span class="src-sym">-&gt;</span><span class="src-id">loadedStyleSheets</span><span class="src-sym">[</span><span class="src-var">$ie</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-var">$href</span><span class="src-sym">]</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a88"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-sym">!</span><span class="src-var">$external</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a89"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$href&nbsp;</span>=&nbsp;<span class="src-var">$baseUrl&nbsp;</span>.&nbsp;<a href="../Wacow_View/Wacow_View_Html_Smarty/_View---Html---Smarty---plugins---function.js.php.html#function_getSrcWithVersion">_getSrcWithVersion</a><span class="src-sym">(</span><a href="http://www.php.net/rtrim">rtrim</a><span class="src-sym">(</span><span class="src-var">$pubPath</span><span class="src-sym">,&nbsp;</span><span class="src-str">'/'</span><span class="src-sym">)&nbsp;</span>.&nbsp;<span class="src-var">$href</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a90"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a91"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$view</span><span class="src-sym">-&gt;</span><span class="src-id">loadedStyleSheets</span><span class="src-sym">[</span><span class="src-var">$ie</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-var">$href</span><span class="src-sym">]&nbsp;</span>=&nbsp;<span class="src-var">$media</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a92"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a93"></a><span class="src-sym">}</span></div></li>
+</ol></div>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 20 Apr 2008 02:57:38 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+	</p>
+	</body>
+</html>
