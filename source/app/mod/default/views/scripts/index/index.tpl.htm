@@ -1,0 +1,21 @@
+<wa:js src="/lib/jquery/latest.js" />
+<wa:css href="/css/style.css" />
+<h1>Hello!! Wacow Framework!!</h1>
+<a id="ajaxtest" href="<% $frontendVars.baseUrl %>/">Ajax Test</a>
+
+<script type="text/javascript">
+$(function () {
+    $('#ajaxtest').click(function () {
+        var link = this;
+        $.ajax({
+            type: "POST",
+            url: link.href,
+            dataType: "json",
+            success: function (json) {
+                $(link).html(json.pageTitle);
+            }
+        });
+        return false;
+    });
+});
+</script>
