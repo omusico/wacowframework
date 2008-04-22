@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>File Source for PathTranslator.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		</head>
+		<body>
+						<h1>Source for file PathTranslator.php</h1>
+<p>Documentation is available at <a href="../Wacow_Application/_Application---PathTranslator.php.html">PathTranslator.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-doc">&nbsp;*&nbsp;Wacow&nbsp;Framework</span></div></li>
+<li><div class="src-line"><a name="a4"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-doc">&nbsp;*&nbsp;LICENSE</span></div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a7"></a><span class="src-doc">&nbsp;*&nbsp;This&nbsp;source&nbsp;file&nbsp;is&nbsp;subject&nbsp;to&nbsp;the&nbsp;new&nbsp;BSD&nbsp;license&nbsp;that&nbsp;is&nbsp;bundled</span></div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-doc">&nbsp;*&nbsp;with&nbsp;this&nbsp;package&nbsp;in&nbsp;the&nbsp;file&nbsp;LICENSE.txt.</span></div></li>
+<li><div class="src-line"><a name="a9"></a><span class="src-doc">&nbsp;*&nbsp;It&nbsp;is&nbsp;also&nbsp;available&nbsp;through&nbsp;the&nbsp;world-wide-web&nbsp;at&nbsp;this&nbsp;URL:</span></div></li>
+<li><div class="src-line"><a name="a10"></a><span class="src-doc">&nbsp;*&nbsp;http://framework.zend.com/license/new-bsd</span></div></li>
+<li><div class="src-line"><a name="a11"></a><span class="src-doc">&nbsp;*&nbsp;If&nbsp;you&nbsp;did&nbsp;not&nbsp;receive&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;license&nbsp;and&nbsp;are&nbsp;unable&nbsp;to</span></div></li>
+<li><div class="src-line"><a name="a12"></a><span class="src-doc">&nbsp;*&nbsp;obtain&nbsp;it&nbsp;through&nbsp;the&nbsp;world-wide-web,&nbsp;please&nbsp;send&nbsp;an&nbsp;email</span></div></li>
+<li><div class="src-line"><a name="a13"></a><span class="src-doc">&nbsp;*&nbsp;to&nbsp;license@zend.com&nbsp;so&nbsp;we&nbsp;can&nbsp;send&nbsp;you&nbsp;a&nbsp;copy&nbsp;immediately.</span></div></li>
+<li><div class="src-line"><a name="a14"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a15"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@category</span><span class="src-doc">&nbsp;&nbsp;&nbsp;Wacow</span></div></li>
+<li><div class="src-line"><a name="a16"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;Wacow_Application</span></div></li>
+<li><div class="src-line"><a name="a17"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2007-2009&nbsp;Wabow&nbsp;Information&nbsp;Inc.&nbsp;(http://www.wabow.com)</span></div></li>
+<li><div class="src-line"><a name="a18"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@license</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;http://framework.zend.com/license/new-bsd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New&nbsp;BSD&nbsp;License</span></div></li>
+<li><div class="src-line"><a name="a19"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;$Id$</span></div></li>
+<li><div class="src-line"><a name="a20"></a><span class="src-doc">&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a21"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a22"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-doc">&nbsp;*&nbsp;Wacow_Application_PathTranslator</span></div></li>
+<li><div class="src-line"><a name="a24"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a25"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@category</span><span class="src-doc">&nbsp;&nbsp;&nbsp;Wacow</span></div></li>
+<li><div class="src-line"><a name="a26"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;Wacow_Application</span></div></li>
+<li><div class="src-line"><a name="a27"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;Copyright&nbsp;(c)&nbsp;2007-2009&nbsp;Wabow&nbsp;Information&nbsp;Inc.&nbsp;(http://www.wabow.com)</span></div></li>
+<li><div class="src-line"><a name="a28"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@license</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;http://framework.zend.com/license/new-bsd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New&nbsp;BSD&nbsp;License</span></div></li>
+<li><div class="src-line"><a name="a29"></a><span class="src-doc">&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a30"></a><span class="src-key">class&nbsp;</span><a href="../Wacow_Application/Wacow_Application_PathTranslator.html">Wacow_Application_PathTranslator</a></div></li>
+<li><div class="src-line"><a name="a31"></a><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a33"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Paths&nbsp;of&nbsp;runtime</span></div></li>
+<li><div class="src-line"><a name="a34"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a35"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">array&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a36"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a37"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">protected&nbsp;</span><a href="../Wacow_Application/Wacow_Application_PathTranslator.html#var$_runtimePaths">$_runtimePaths</a>&nbsp;=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a38"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a39"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a40"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constructor</span></div></li>
+<li><div class="src-line"><a name="a41"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a42"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">array&nbsp;</span><span class="src-doc-var">$paths&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a43"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a44"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Wacow_Application/Wacow_Application_PathTranslator.html#method__construct">__construct</a><span class="src-sym">(</span><span class="src-var">$paths</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a45"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a46"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Wacow_Application/Wacow_Application_PathTranslator.html#var$_runtimePaths">_runtimePaths</a>&nbsp;=&nbsp;<span class="src-var">$paths</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a47"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a48"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a49"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a50"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Add&nbsp;path&nbsp;mapping</span></div></li>
+<li><div class="src-line"><a name="a51"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a52"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">mixed&nbsp;</span><span class="src-doc-var">$paths&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a53"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a54"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Wacow_Application/Wacow_Application_PathTranslator.html#methodaddPathMapping">addPathMapping</a><span class="src-sym">(</span><span class="src-var">$paths</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a55"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-num">2&nbsp;</span>==&nbsp;<a href="http://www.php.net/func_num_args">func_num_args</a><span class="src-sym">(</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a57"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Wacow_Application/Wacow_Application_PathTranslator.html#var$_runtimePaths">_runtimePaths</a><span class="src-sym">[</span><a href="http://www.php.net/func_get_arg">func_get_arg</a><span class="src-sym">(</span><span class="src-num">0</span><span class="src-sym">)</span><span class="src-sym">]&nbsp;</span>=&nbsp;<a href="http://www.php.net/func_get_arg">func_get_arg</a><span class="src-sym">(</span><span class="src-num">1</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a58"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-key">elseif&nbsp;</span><span class="src-sym">(</span><a href="http://www.php.net/is_array">is_array</a><span class="src-sym">(</span><span class="src-var">$paths</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a59"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Wacow_Application/Wacow_Application_PathTranslator.html#var$_runtimePaths">_runtimePaths</a>&nbsp;=&nbsp;<a href="http://www.php.net/array_merge">array_merge</a><span class="src-sym">(</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Wacow_Application/Wacow_Application_PathTranslator.html#var$_runtimePaths">_runtimePaths</a><span class="src-sym">,&nbsp;</span><span class="src-var">$paths</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a60"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a61"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a62"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a63"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a64"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Get&nbsp;runtime&nbsp;path</span></div></li>
+<li><div class="src-line"><a name="a65"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a66"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$name&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a67"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">string&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a68"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a69"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Wacow_Application/Wacow_Application_PathTranslator.html#methodgetRuntimePath">getRuntimePath</a><span class="src-sym">(</span><span class="src-var">$name</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a70"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a71"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Wacow_Application/Wacow_Application_PathTranslator.html#var$_runtimePaths">_runtimePaths</a><span class="src-sym">[</span><span class="src-var">$name</span><span class="src-sym">]</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a72"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a73"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a74"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a75"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Inject&nbsp;values&nbsp;into&nbsp;the&nbsp;options</span></div></li>
+<li><div class="src-line"><a name="a76"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a77"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Allowed&nbsp;variables&nbsp;are:</span></div></li>
+<li><div class="src-line"><a name="a78"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;:rootPath</span></div></li>
+<li><div class="src-line"><a name="a79"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;:appPath</span></div></li>
+<li><div class="src-line"><a name="a80"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;:etcPath</span></div></li>
+<li><div class="src-line"><a name="a81"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;:tmpPath</span></div></li>
+<li><div class="src-line"><a name="a82"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;:modulePath</span></div></li>
+<li><div class="src-line"><a name="a83"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;:basePath</span></div></li>
+<li><div class="src-line"><a name="a84"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;:libPath</span></div></li>
+<li><div class="src-line"><a name="a85"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;:pubPath</span></div></li>
+<li><div class="src-line"><a name="a86"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;:cachePath</span></div></li>
+<li><div class="src-line"><a name="a87"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;:uploadPath</span></div></li>
+<li><div class="src-line"><a name="a88"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;:etcCachePath</span></div></li>
+<li><div class="src-line"><a name="a89"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a90"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@see</span><span class="src-doc">&nbsp;/app/etc/defination.php</span></div></li>
+<li><div class="src-line"><a name="a91"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">array</span><span class="src-doc">|</span><span class="src-doc-type">Zend_Config</span><span class="src-doc-var">$options&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a92"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">Zend_Config&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a93"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a94"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Wacow_Application/Wacow_Application_PathTranslator.html#methodtranslatePath">translatePath</a><span class="src-sym">(</span><span class="src-var">$options</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a95"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a96"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-var">$options&nbsp;</span>instanceof&nbsp;<span class="src-id">Zend_Config</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a97"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$options&nbsp;</span>=&nbsp;<span class="src-var">$options</span><span class="src-sym">-&gt;</span><span class="src-id">toArray</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a98"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a99"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a100"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$isString&nbsp;</span>=&nbsp;<a href="http://www.php.net/is_string">is_string</a><span class="src-sym">(</span><span class="src-var">$options</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a101"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a102"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$options&nbsp;</span>=&nbsp;(array)&nbsp;<span class="src-var">$options</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a103"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a104"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">foreach&nbsp;</span><span class="src-sym">(</span><span class="src-var">$options&nbsp;</span><span class="src-key">as&nbsp;</span><span class="src-var">$key&nbsp;</span>=&gt;&nbsp;<span class="src-var">$option</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a105"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$options</span><span class="src-sym">[</span><span class="src-var">$key</span><span class="src-sym">]&nbsp;</span>=&nbsp;<a href="http://www.php.net/str_replace">str_replace</a><span class="src-sym">(</span><a href="http://www.php.net/array_keys">array_keys</a><span class="src-sym">(</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Wacow_Application/Wacow_Application_PathTranslator.html#var$_runtimePaths">_runtimePaths</a><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><a href="http://www.php.net/array_values">array_values</a><span class="src-sym">(</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Wacow_Application/Wacow_Application_PathTranslator.html#var$_runtimePaths">_runtimePaths</a><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-var">$option</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a106"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a107"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a108"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-sym">(</span><span class="src-var">$isString</span><span class="src-sym">)&nbsp;</span>?&nbsp;<span class="src-var">$options</span><span class="src-sym">[</span><span class="src-num">0</span><span class="src-sym">]&nbsp;</span>:&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">Zend_Config</span><span class="src-sym">(</span><span class="src-var">$options</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a109"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a110"></a><span class="src-sym">}</span></div></li>
+</ol></div>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 20 Apr 2008 02:57:46 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+	</p>
+	</body>
+</html>
