@@ -58,9 +58,9 @@ class Wacow_Db_Table extends Zend_Db_Table_Abstract
      */
     public function createRow(array $data = array())
     {
-        $defaults = array_combine($this->_cols, array_fill(0, count($this->_cols), null));
+        $defaults = array();
         foreach ($this->_cols as $col) {
-        	if (isset($this->_metadata[$col]['DEFAULT'])) {
+        	if (array_key_exists('DEFAULT', $this->_metadata[$col])) {
         		$defaults[$col] = $this->_metadata[$col]['DEFAULT'];
         	}
         }
@@ -69,14 +69,7 @@ class Wacow_Db_Table extends Zend_Db_Table_Abstract
         $data = array_intersect_key($data, $keys);
         $data = array_merge($defaults, $data);
 
-        $config = array(
-            'table'   => $this,
-            'data'    => $data,
-            'stored'  => false
-        );
-
-        Zend_Loader::loadClass($this->_rowClass);
-        return new $this->_rowClass($config);
+        return parent::createRow($data);
     }
 
     /**
