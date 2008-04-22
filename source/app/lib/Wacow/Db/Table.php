@@ -16,7 +16,7 @@
  * @package    Wacow_Db
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id$
+ * @version    $Id: Table.php 406 2008-04-20 02:43:18Z jaceju $
  */
 
 /**
@@ -58,9 +58,9 @@ class Wacow_Db_Table extends Zend_Db_Table_Abstract
      */
     public function createRow(array $data = array())
     {
-        $defaults = array();
+        $defaults = array_combine($this->_cols, array_fill(0, count($this->_cols), null));
         foreach ($this->_cols as $col) {
-        	if (array_key_exists('DEFAULT', $this->_metadata[$col])) {
+        	if (isset($this->_metadata[$col]['DEFAULT'])) {
         		$defaults[$col] = $this->_metadata[$col]['DEFAULT'];
         	}
         }
@@ -69,7 +69,14 @@ class Wacow_Db_Table extends Zend_Db_Table_Abstract
         $data = array_intersect_key($data, $keys);
         $data = array_merge($defaults, $data);
 
-        return parent::createRow($data);
+        $config = array(
+            'table'   => $this,
+            'data'    => $data,
+            'stored'  => false
+        );
+
+        Zend_Loader::loadClass($this->_rowClass);
+        return new $this->_rowClass($config);
     }
 
     /**

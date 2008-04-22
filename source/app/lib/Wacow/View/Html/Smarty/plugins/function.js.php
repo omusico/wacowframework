@@ -37,7 +37,7 @@
  *
  * @package     Wacow_View
  * @subpackage  Wacow_View_Html_Smarty
- * @version     $Id$
+ * @version     $Id: function.js.php 405 2008-04-20 02:38:02Z jaceju $
  */
 
 /**

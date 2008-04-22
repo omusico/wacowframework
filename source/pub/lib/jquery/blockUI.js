@@ -3,7 +3,7 @@
  * Version 1.33  (09/14/2007)
  * @requires jQuery v1.1.1
  *
- * $Id$
+ * $Id: jquery.blockUI.js 3291 2007-09-14 23:56:25Z malsup $
  *
  * Examples at: http://malsup.com/jquery/block/
  * Copyright (c) 2007 M. Alsup

@@ -17,7 +17,7 @@
  * @subpackage Wacow_Controller_Plugin
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id$
+ * @version    $Id: PathHandler.php 406 2008-04-20 02:43:18Z jaceju $
  */
 
 /**
@@ -37,7 +37,10 @@ require_once 'Zend/Controller/Plugin/Abstract.php';
 class Wacow_Controller_Plugin_PathHandler extends Zend_Controller_Plugin_Abstract
 {
     /**
-     * Add Module name traslation to translator.
+     * Decide the type of view object
+     *
+     * If the requrest is got from ajax, then create an Wacow_View_Ajax object for render.
+     * Otherwise we use the Wacow_View_Html (Smarty) for render.
      *
      * @param Wacow_Controller_Action $actionController
      * @param Zend_Controller_Request_Abstract $request
@@ -46,14 +49,5 @@ class Wacow_Controller_Plugin_PathHandler extends Zend_Controller_Plugin_Abstrac
     {
         $translator = Wacow_Application::getPathTranslator();
         $translator->addPathMapping(':moduleDir', $translator->getRuntimePath(':modulePath') . '/' . $this->_request->getModuleName());
-    }
-
-    /**
-     * Add include path of models by module.
-     *
-     */
-    public function preDispatch()
-    {
-        Wacow_Application::getInstance()->addIncludePath(':moduleDir/models');
     }
 }

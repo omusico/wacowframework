@@ -16,7 +16,7 @@
  * @package    Wacow_View
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id$
+ * @version    $Id: View.php 408 2008-04-20 02:57:12Z jaceju $
  */
 
 /**

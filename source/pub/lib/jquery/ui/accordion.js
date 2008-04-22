@@ -10,7 +10,7 @@
  * Depends:
  *   ui.base.js
  *
- * Revision: $Id$
+ * Revision: $Id: ui.accordion.js 5188 2008-04-03 18:05:08Z joern.zaefferer $
  */
 
 ;(function($) {

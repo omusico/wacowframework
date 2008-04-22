@@ -10,7 +10,7 @@
  * Depends:
  *   ui.base.js
  *
- * Revision: $Id$
+ * Revision: $Id: ui.draggable.js 5194 2008-04-04 12:30:10Z paul.bakaus $
  */
 ;(function($) {
 

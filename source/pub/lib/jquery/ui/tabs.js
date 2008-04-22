@@ -10,7 +10,7 @@
  * Depends:
  *   ui.base.js
  *
- * Revision: $Id$
+ * Revision: $Id: ui.tabs.js 5149 2008-03-31 10:51:18Z rdworth $
  */
 ;(function($) {
 

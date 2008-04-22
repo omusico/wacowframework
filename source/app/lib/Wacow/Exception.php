@@ -16,7 +16,7 @@
  * @package    Wacow_Exception
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id$
+ * @version    $Id: Exception.php 1 2007-09-22 04:53:28Z jaceju $
  */
 
 /**

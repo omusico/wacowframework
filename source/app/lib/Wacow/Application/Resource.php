@@ -16,7 +16,7 @@
  * @package    Wacow_Application
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id$
+ * @version    $Id: Resource.php 406 2008-04-20 02:43:18Z jaceju $
  */
 
 /**

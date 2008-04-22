@@ -10,7 +10,7 @@
  * Depends:
  *   ui.base.js
  *
- * Revision: $Id$
+ * Revision: $Id: ui.resizable.js 5205 2008-04-06 16:12:50Z braeker $
  */
 ;(function($) {
 	

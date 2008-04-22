@@ -12,7 +12,7 @@
  *   ui.draggable.js
  *   ui.resizable.js
  *
- * Revision: $Id$
+ * Revision: $Id: ui.dialog.js 5185 2008-04-03 15:39:51Z scott.gonzalez $
  */
 ;(function($) {
 	

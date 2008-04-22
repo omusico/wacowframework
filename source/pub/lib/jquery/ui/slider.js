@@ -10,7 +10,7 @@
  * Depends:
  *   ui.base.js
  *
- * Revision: $Id$
+ * Revision: $Id: ui.slider.js 5219 2008-04-09 20:16:05Z braeker $
  */
 ;(function($) {
 

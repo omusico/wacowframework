@@ -11,7 +11,7 @@
  *   ui.base.js
  *   ui.draggable.js
  *
- * Revision: $Id$
+ * Revision: $Id: ui.droppable.js 5198 2008-04-04 13:06:40Z paul.bakaus $
  */
 ;(function($) {
 	

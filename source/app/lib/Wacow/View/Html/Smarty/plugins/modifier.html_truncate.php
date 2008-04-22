@@ -12,7 +12,7 @@
  *
  * @package     Wacow_View
  * @subpackage  Wacow_View_Html_Smarty
- * @version     $Id$
+ * @version     $Id: modifier.html_truncate.php 405 2008-04-20 02:38:02Z jaceju $
  * @author      Jace Ju
  * @copyright   http://www.opensource.org/licenses/mit-license.php    The MIT License
  * @see         http://blog.stevenlevithan.com/archives/get-html-summary
