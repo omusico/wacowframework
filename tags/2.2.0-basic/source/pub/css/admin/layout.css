@@ -1,0 +1,102 @@
+/****************************
+ * PAGE LAYOUT              *
+ ****************************/
+html, body {
+position:relative;
+width:100%;
+}
+
+#wrapper {
+position:relative;
+width:100%;
+}
+
+    /****************************
+     * HEADER                   */
+    #header {
+    position:relative;
+    height:60px;
+    }
+
+        /****************************
+         * LOGO                     */
+        #logo {
+        position:relative;
+        width:170px;
+        height:60px;
+        }
+        
+        /****************************
+         * MEMBER                   */
+        #member {
+        position:absolute;
+        width:50%;
+        top:0;
+        right:0;
+        }
+        
+        /****************************
+         * MODULES                  */
+        #modules {
+        position:absolute;
+        bottom:0;
+        height:27px;
+        left:170px;
+        }
+        
+    /****************************
+     * BODY                     */
+    #body {
+    position:relative;
+    margin:0 10px;
+    padding-top:30px;
+    border:1px solid #6A9EC3;
+    height:auto !important;
+    height:1%;
+    }
+
+        /****************************
+         * FUNCTIONS                */
+        #functions {
+        position:relative;
+        float:left;
+        display:inline-block;
+        width:210px !important;
+        }
+        
+        /****************************
+         * CONTENT WRAPPER          */
+        #contentWrapper {
+        position:relative;
+        margin-left:210px;
+        }
+
+        * html
+        #contentWrapper {
+        left:-3px;
+        display:inline-block;
+        padding-left:0px;
+        }
+
+        /****************************
+         * CRUMBS                   */
+        #crumbs {
+        position:relative;
+        height:40px;
+        }
+
+        /****************************
+         * CONTENT                  */
+        #content {
+        position:relative;
+        padding:0 10px;
+        }
+
+    /****************************
+     * FOOTER                   */
+    #footer {
+    clear:both;
+    position:relative;
+    height:35px;
+    padding:0 10px;
+    }

@@ -1,0 +1,89 @@
+@import '../reset.css';
+@import 'layout.css';
+@import 'style.css';
+@import 'form.css';
+
+    /****************************
+     * LOGIN WRAPPER            */
+    #loginWrapper {
+    position:relative;
+    font-size:9pt;
+    color:#6A9EC3;
+    width:100%;
+    height:174px;
+    margin:180px 0;
+    background:url(img/bg-login-center.jpg) repeat-x left center #FFF;
+    }
+
+        /****************************
+         * ERROR MESSAGES           */
+        ul.errorMessages {
+        color:#F00;
+        position:absolute;
+        bottom:174px;
+        left:300px;
+        }
+
+        ul.errorMessages li {
+        padding-left:25px;
+        line-height:25px;
+        background:url(img/error.gif) no-repeat left center;
+        }
+
+        /****************************
+         * LOGIN FORM WRAPPER       */
+        #loginFormWrapper {
+        height:174px;
+        background:url(img/bg-login-right.jpg) no-repeat right center;
+        }
+
+            /****************************
+             * LOGIN FORM               */
+            #loginForm {
+            width:630px;
+            padding-left:12px;
+            padding-right:12px;
+            background:url(img/bg-login-left.jpg) repeat-y left center #FFF;
+            }
+
+            #loginForm fieldset {
+            width:360px;
+            height:144px;
+            border:1px solid #6A9EC3;
+            margin-left:270px;
+            background:url(img/bg-login-line.gif) repeat-y left center;
+            }
+
+            #loginForm label.inline {
+            margin-right:10px;
+            padding-left:20px;
+            }
+
+            #loginForm label.accept {
+            background:url(img/accept.gif) no-repeat left center #FFF;
+            }
+
+            #loginForm label.error {
+            background:url(img/accept.gif) no-repeat left center #FFF;
+            }
+
+            #loginForm p {
+            margin:10px 20px;
+            padding:5px 10px;
+            }
+
+            #loginForm p.buttons {
+            border:none;
+            background:none;
+            text-align:center;
+            }
+
+            #loginForm input.text {
+            width:70%;
+            border:1px solid #C8DBEC;
+            }
+
+            * html
+            #loginForm input.text {
+            border:1px solid #C8DBEC;
+            }

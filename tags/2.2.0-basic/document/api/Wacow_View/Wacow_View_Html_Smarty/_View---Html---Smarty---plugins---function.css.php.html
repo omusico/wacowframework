@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs for page function.css.php</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name">/View/Html/Smarty/plugins/function.css.php</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-functions">Functions</a>
+			</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Smarty plugin</p>
+<p class="description"><p>Load CSS.</p><p>Examples:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-id">Load&nbsp;custom&nbsp;style&nbsp;sheet&nbsp;which&nbsp;located&nbsp;</span>/<span class="src-id">pub</span>/<span class="src-id">css</span>/<span class="src-id">admin</span>/<span class="src-id">user</span>.<span class="src-id">css</span></div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-id">wa</span>:<span class="src-id">css&nbsp;href</span>=<span class="src-str">&quot;/css/admin/user.css&quot;&nbsp;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">convert&nbsp;to</span>:</div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-id">link&nbsp;rel</span>=<span class="src-str">&quot;stylesheet&quot;&nbsp;</span><span class="src-id">type</span>=<span class="src-str">&quot;text/css&quot;&nbsp;</span><span class="src-id">href</span>=<span class="src-str">&quot;/pub/css/admin/user.css&quot;&nbsp;</span><span class="src-id">media</span>=<span class="src-str">&quot;all&quot;&nbsp;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">Load&nbsp;style&nbsp;sheet&nbsp;of&nbsp;jquery&nbsp;thickbox&nbsp;</span><span class="src-key">for&nbsp;</span><span class="src-id">screen</span></div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-id">wa</span>:<span class="src-id">css&nbsp;href</span>=<span class="src-str">&quot;/lib/jquery/thickbox.css&quot;&nbsp;</span><span class="src-id">media</span>=<span class="src-str">&quot;screen&quot;&nbsp;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">convert&nbsp;to</span>:</div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-id">link&nbsp;rel</span>=<span class="src-str">&quot;stylesheet&quot;&nbsp;</span><span class="src-id">type</span>=<span class="src-str">&quot;text/css&quot;&nbsp;</span><span class="src-id">href</span>=<span class="src-str">&quot;/pub/lib/jquery/thickbox.css&quot;&nbsp;</span><span class="src-id">media</span>=<span class="src-str">&quot;screen&quot;&nbsp;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">Load&nbsp;external&nbsp;javascript</span></div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-id">wa</span>:<span class="src-id">css&nbsp;href</span>=<span class="src-str">&quot;http://example.com/example.css&quot;&nbsp;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">convert&nbsp;to</span>:</div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-id">link&nbsp;rel</span>=<span class="src-str">&quot;stylesheet&quot;&nbsp;</span><span class="src-id">type</span>=<span class="src-str">&quot;text/css&quot;&nbsp;</span><span class="src-id">href</span>=<span class="src-str">&quot;http://example.com/example.css&quot;&nbsp;</span><span class="src-id">media</span>=<span class="src-str">&quot;all&quot;&nbsp;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">Load&nbsp;IE&nbsp;only&nbsp;style&nbsp;sheet</span></div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-id">wa</span>:<span class="src-id">css&nbsp;href</span>=<span class="src-str">&quot;http://example.com/example.css&quot;&nbsp;</span><span class="src-id">ie</span>=<span class="src-str">&quot;yes&quot;&nbsp;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">convert&nbsp;to</span>:</div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-sym">!</span>--<span class="src-sym">[</span><span class="src-key">if&nbsp;</span><span class="src-id">IE</span><span class="src-sym">]</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-id">link&nbsp;rel</span>=<span class="src-str">&quot;stylesheet&quot;&nbsp;</span><span class="src-id">type</span>=<span class="src-str">&quot;text/css&quot;&nbsp;</span><span class="src-id">href</span>=<span class="src-str">&quot;http://example.com/example.css&quot;&nbsp;</span><span class="src-id">media</span>=<span class="src-str">&quot;all&quot;&nbsp;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-sym">!</span><span class="src-sym">[</span><span class="src-key">endif</span><span class="src-sym">]</span>--&gt;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">Load&nbsp;javascript&nbsp;on&nbsp;IE&nbsp;which&nbsp;version&nbsp;less&nbsp;than&nbsp;</span><span class="src-num">7</span></div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-id">wa</span>:<span class="src-id">css&nbsp;href</span>=<span class="src-str">&quot;/theme/wacow/style_ie.css&quot;&nbsp;</span><span class="src-id">ie</span>=<span class="src-str">&quot;yes&quot;&nbsp;</span><span class="src-id">version</span>=<span class="src-str">&quot;lt&nbsp;7&quot;&nbsp;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-sym">!</span>--<span class="src-sym">[</span><span class="src-key">if&nbsp;</span><span class="src-id">lt&nbsp;IE&nbsp;</span><span class="src-num">7</span><span class="src-sym">]</span>&gt;</div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-id">link&nbsp;rel</span>=<span class="src-str">&quot;stylesheet&quot;&nbsp;</span><span class="src-id">type</span>=<span class="src-str">&quot;text/css&quot;&nbsp;</span><span class="src-id">href</span>=<span class="src-str">&quot;/pub/theme/wacow/style_ie.css&quot;&nbsp;</span><span class="src-id">media</span>=<span class="src-str">&quot;all&quot;&nbsp;</span>/&gt;</div></li>
+<li><div class="src-line">&nbsp;&lt;<span class="src-sym">!</span><span class="src-sym">[</span><span class="src-key">endif</span><span class="src-sym">]</span>--&gt;</div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> $Id: function.css.php 597 2008-12-21 07:12:48Z jaceju $</li>
+			</ul>
+		
+			</div>
+</div>
+		
+
+	
+	
+	
+	<a name="sec-functions"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Functions</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<span class="disabled">Functions</span>
+		</div>
+		<div class="info-box-body">	
+			<a name="functionsmarty_function_css" id="functionsmarty_function_css"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">smarty_function_css</span> (line <span class="line-number">49</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">smarty_function_css</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			smarty_function_css
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$params</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$smarty</span>, <span class="var-type">Smarty</span>&nbsp;<span class="var-name">$smarty</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$params</span>			</li>
+					<li>
+				<span class="var-type">Smarty</span>
+				<span class="var-name">$smarty</span>			</li>
+					<li>
+				<span class="var-type">Smarty</span>
+				<span class="var-name">&$smarty</span>			</li>
+				</ul>
+		
+	
+</div>
+		</div>
+	</div>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 25 Feb 2009 04:24:50 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+	</p>
+	</div></body>
+</html>
