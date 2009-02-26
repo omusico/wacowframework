@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Wacow_Mail</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Wacow_Mail</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Wacow_Mail</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)</li>
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">license:</span> <a href="http://framework.zend.com/license/new-bsd">New BSD License</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Mail.php.html">/Mail.php</a> (line <span class="field">30</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html">Wacow_Mail_PHPMailer</a></td>
+					<td>
+											Adapter of PHPMailer
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#parseEmail" title="details" class="method-name">parseEmail</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>)
+									</div>
+																																																								
+												<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#addAttachment" title="details" class="method-name">addAttachment</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">&quot;&quot;</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$encoding</span> = <span class="var-default">&quot;base64&quot;</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">&quot;application/octet-stream&quot;</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+										<a href="#addBcc" title="details" class="method-name">addBcc</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">''</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+										<a href="#addCc" title="details" class="method-name">addCc</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">''</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+										<a href="#addReplyTo" title="details" class="method-name">addReplyTo</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">''</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+										<a href="#addTo" title="details" class="method-name">addTo</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">''</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+										<a href="#clearAddresses" title="details" class="method-name">clearAddresses</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+										<a href="#clearBCCs" title="details" class="method-name">clearBCCs</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+										<a href="#clearCCs" title="details" class="method-name">clearCCs</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getErrorInfo" title="details" class="method-name">getErrorInfo</a>
+										()
+									</div>
+																								<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#send" title="details" class="method-name">send</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+										<a href="#setBodyHtml" title="details" class="method-name">setBodyHtml</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$html</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+										<a href="#setBodyText" title="details" class="method-name">setBodyText</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$txt</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCharset" title="details" class="method-name">setCharset</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$charset</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+										<a href="#setFrom" title="details" class="method-name">setFrom</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$fromName</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+										<a href="#setSubject" title="details" class="method-name">setSubject</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$subject</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodparseEmail" id="parseEmail"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method parseEmail</span> (line <span class="line-number">38</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parse Email</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> (email, name)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">array</span>
+		<span class="method-name">
+			parseEmail
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$email</span>			</li>
+				</ul>
+		
+			
+	</div>
+
+<a name="methodaddAttachment" id="addAttachment"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addAttachment</span> (line <span class="line-number">133</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds an attachment from a path on the filesystem.</p>
+<p class="description"><p>Returns false if the file could not be found  or accessed.</p></p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			addAttachment
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">&quot;&quot;</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$encoding</span> = <span class="var-default">&quot;base64&quot;</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">&quot;application/octet-stream&quot;</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span><span class="var-description">: Path to the attachment.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: Overrides the attachment name.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$encoding</span><span class="var-description">: File encoding (see $Encoding).</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: File extension (MIME) type.</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodaddAttachment">Wacow_Mail_PHPMailer::addAttachment()</a>
+								: Adds an attachment from a path on the filesystem.
+							</li>
+				</ul>
+	</div>
+<a name="methodaddBcc" id="addBcc"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addBcc</span> (line <span class="line-number">111</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a &quot;Bcc&quot; address.</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+		<span class="method-name">
+			addBcc
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$email</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodaddBcc">Wacow_Mail_PHPMailer::addBcc()</a>
+								: Adds a &quot;Bcc&quot; address.
+							</li>
+				</ul>
+	</div>
+<a name="methodaddCc" id="addCc"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addCc</span> (line <span class="line-number">102</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a &quot;Cc&quot; address.</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+		<span class="method-name">
+			addCc
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$email</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodaddCc">Wacow_Mail_PHPMailer::addCc()</a>
+								: Adds a &quot;Cc&quot; address.
+							</li>
+				</ul>
+	</div>
+<a name="methodaddReplyTo" id="addReplyTo"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addReplyTo</span> (line <span class="line-number">120</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a &quot;Reply-to&quot; address.</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+		<span class="method-name">
+			addReplyTo
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$email</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodaddReplyTo">Wacow_Mail_PHPMailer::addReplyTo()</a>
+								: Adds a &quot;Reply-to&quot; address.
+							</li>
+				</ul>
+	</div>
+<a name="methodaddTo" id="addTo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addTo</span> (line <span class="line-number">93</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a &quot;To&quot; address.</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+		<span class="method-name">
+			addTo
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$email</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodaddTo">Wacow_Mail_PHPMailer::addTo()</a>
+								: Adds a &quot;To&quot; address.
+							</li>
+				</ul>
+	</div>
+<a name="methodclearAddresses" id="clearAddresses"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">clearAddresses</span> (line <span class="line-number">149</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Clears all recipients assigned in the TO array.</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+		<span class="method-name">
+			clearAddresses
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodclearAddresses">Wacow_Mail_PHPMailer::clearAddresses()</a>
+								: Clears all recipients assigned in the TO array.
+							</li>
+				</ul>
+	</div>
+<a name="methodclearBCCs" id="clearBCCs"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">clearBCCs</span> (line <span class="line-number">163</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Clears all recipients assigned in the BCC array.</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+		<span class="method-name">
+			clearBCCs
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodclearBCCs">Wacow_Mail_PHPMailer::clearBCCs()</a>
+								: Clears all recipients assigned in the BCC array.
+							</li>
+				</ul>
+	</div>
+<a name="methodclearCCs" id="clearCCs"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">clearCCs</span> (line <span class="line-number">156</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Clears all recipients assigned in the CC array.</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+		<span class="method-name">
+			clearCCs
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodclearCCs">Wacow_Mail_PHPMailer::clearCCs()</a>
+								: Clears all recipients assigned in the CC array.
+							</li>
+				</ul>
+	</div>
+<a name="methodgetErrorInfo" id="getErrorInfo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getErrorInfo</span> (line <span class="line-number">170</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the most recent mailer error message.</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getErrorInfo
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodgetErrorInfo">Wacow_Mail_PHPMailer::getErrorInfo()</a>
+								: Get the most recent mailer error message.
+							</li>
+				</ul>
+	</div>
+<a name="methodsend" id="send"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">send</span> (line <span class="line-number">142</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates message and assigns Mailer. If the message is  not sent successfully then it returns false.  Use the ErrorInfo  variable to view description of the error.</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			send
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodsend">Wacow_Mail_PHPMailer::send()</a>
+								: Creates message and assigns Mailer. If the message is  not sent successfully then it returns false.  Use the ErrorInfo  variable to view description of the error.
+							</li>
+				</ul>
+	</div>
+<a name="methodsetBodyHtml" id="setBodyHtml"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBodyHtml</span> (line <span class="line-number">68</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Html content of mail</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+		<span class="method-name">
+			setBodyHtml
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$html</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$html</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodsetBodyHtml">Wacow_Mail_PHPMailer::setBodyHtml()</a>
+								: Html content of mail
+							</li>
+				</ul>
+	</div>
+<a name="methodsetBodyText" id="setBodyText"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBodyText</span> (line <span class="line-number">76</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Text content of mail</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+		<span class="method-name">
+			setBodyText
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$txt</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$txt</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodsetBodyText">Wacow_Mail_PHPMailer::setBodyText()</a>
+								: Text content of mail
+							</li>
+				</ul>
+	</div>
+<a name="methodsetCharset" id="setCharset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCharset</span> (line <span class="line-number">51</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">charset of content</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCharset
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$charset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$charset</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodsetCharset">Wacow_Mail_PHPMailer::setCharset()</a>
+								: charset of content
+							</li>
+				</ul>
+	</div>
+<a name="methodsetFrom" id="setFrom"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setFrom</span> (line <span class="line-number">60</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Name and email of sender</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+		<span class="method-name">
+			setFrom
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$from</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$fromName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$from</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$fromName</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodsetFrom">Wacow_Mail_PHPMailer::setFrom()</a>
+								: Name and email of sender
+							</li>
+				</ul>
+	</div>
+<a name="methodsetSubject" id="setSubject"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setSubject</span> (line <span class="line-number">84</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Subject of mail</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+		<span class="method-name">
+			setSubject
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$subject</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$subject</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Wacow_Mail/Wacow_Mail_PHPMailer.html#methodsetSubject">Wacow_Mail_PHPMailer::setSubject()</a>
+								: Subject of mail
+							</li>
+				</ul>
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 25 Feb 2009 04:24:52 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+	</p>
+	</div></body>
+</html>

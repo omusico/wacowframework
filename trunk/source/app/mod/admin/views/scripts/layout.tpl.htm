@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Wacow Backend System</title>
+<% css href="/css/admin.css" %>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <div id="header">
+        <div id="logo">
+            <h1>
+                <a href="/">Wacow Backend System</a>
+            </h1>
+        </div>
+        <div id="member">
+            <ul>
+                <li class="nickname">Wellcome, user</li>
+                <li class="logout"><a href="<% $frontendVars.baseUrl %>/admin/logout">Logout</a></li>
+            </ul>
+        </div>
+        <div id="modules">
+            <ul>
+                <li class="module"><a href="#"><span>Module1</span></a></li>
+                <li class="module active"><a href="#"><span>Module2</span></a></li>
+                <li class="module"><a href="#"><span>Module3</span></a></li>
+                <li class="module"><a href="#"><span>Module4</span></a></li>
+                <li class="module"><a href="#"><span>Module5</span></a></li>
+                <li class="module"><a href="#"><span>Module6</span></a></li>
+                <li class="module"><a href="#"><span>Module7</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="body">
+
+        <div id="functions">
+            <ul class="mainFunctions">
+                <li class="functionGroup">
+                    <p><a href="#">MainFunction1</a></p>
+                    <ul class="subFunctions">
+                        <li class="function"><a href="#">SubFunction1</a></li>
+                        <li class="function"><a href="#">SubFunction2</a></li>
+                        <li class="function"><a href="#">SubFunction3</a></li>
+                        <li class="function"><a href="#">SubFunction4</a></li>
+                        <li class="function"><a href="#">SubFunction5</a></li>
+                        <li class="function"><a href="#">SubFunction6</a></li>
+                    </ul>
+                </li>
+                <li class="functionGroup">
+                    <p><a href="#">MainFunction2</a></p>
+                    <ul class="subFunctions">
+                        <li class="function"><a href="#">SubFunction1</a></li>
+                        <li class="function"><a href="#">SubFunction2</a></li>
+                        <li class="function"><a href="#">SubFunction3</a></li>
+                    </ul>
+                </li>
+                <li class="functionGroup">
+                    <p><a href="#">MainFunction3</a></p>
+                    <ul class="subFunctions">
+                        <li class="function"><a href="#">SubFunction1</a></li>
+                        <li class="function"><a href="#">SubFunction2</a></li>
+                        <li class="function"><a href="#">SubFunction3</a></li>
+                        <li class="function"><a href="#">SubFunction4</a></li>
+                        <li class="function"><a href="#">SubFunction5</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="contentWrapper">
+            <div id="crumbs">
+                <p><span>Where am I: </span><a href="#">Module2</a><span class="separator">&gt;</span><a href="#">MainFunction1</a><span class="separator">&gt;</span><a href="#">SubFunction1</a></p>
+            </div>
+
+            <div id="content">
+            <h2 class="pageTitle">SubFunction1</h2>
+
+            <div class="separator"></div>
+
+            <% content name="contentFromAction" %>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="footer">
+        <p>&copy;2008 By Wabow Information Inc. All Rights Reserved.</p>
+    </div>
+
+</div>
+</body>
+</html>
