@@ -1,0 +1,1382 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Wacow_Application</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Wacow_Application</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Wacow_Application</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)</li>
+				<li><span class="field">license:</span> <a href="http://framework.zend.com/license/new-bsd">New BSD License</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Application.php.html">/Application.php</a> (line <span class="field">75</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																												<div class="var-title">
+					static <span class="var-type"><a href="../Wacow_Application/Wacow_Application_PathTranslator.html">Wacow_Application_PathTranslator</a></span>
+					<a href="#$_pathTranslator" title="details" class="var-name">$_pathTranslator</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type">array</span>
+					<a href="#$_plugins" title="details" class="var-name">$_plugins</a>
+				</div>
+																								<div class="var-title">
+					static <span class="var-type">ReflectionClass</span>
+					<a href="#$_reflectionClass" title="details" class="var-name">$_reflectionClass</a>
+				</div>
+																																<div class="var-title">
+					static <span class="var-type">Zend_Session_SaveHandler_Interface</span>
+					<a href="#$_sessionSaveHandler" title="details" class="var-name">$_sessionSaveHandler</a>
+				</div>
+																																				<div class="var-title">
+					<span class="var-type">Zend_Config</span>
+					<a href="#$_config" title="details" class="var-name">$_config</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">bool</span>
+					<a href="#$_debugMode" title="details" class="var-name">$_debugMode</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$_defaultModule" title="details" class="var-name">$_defaultModule</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$_deployMode" title="details" class="var-name">$_deployMode</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$_mailer" title="details" class="var-name">$_mailer</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$_name" title="details" class="var-name">$_name</a>
+				</div>
+																																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$_publicWebPath" title="details" class="var-name">$_publicWebPath</a>
+				</div>
+																								<div class="var-title">
+					<span class="var-type">Zend_Config</span>
+					<a href="#$_routeConfig" title="details" class="var-name">$_routeConfig</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$_runtimeMode" title="details" class="var-name">$_runtimeMode</a>
+				</div>
+																								<div class="var-title">
+					<span class="var-type">bool</span>
+					<a href="#$_showError" title="details" class="var-name">$_showError</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$_timezone" title="details" class="var-name">$_timezone</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+												<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#addActionHelper" title="details" class="method-name">addActionHelper</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$helper</span>)
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#addIncludePath" title="details" class="method-name">addIncludePath</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+									</div>
+																																																<div class="method-definition">
+					static 						<span class="method-result">Zend_Controller_Front</span>
+										<a href="#getFrontController" title="details" class="method-name">getFrontController</a>
+										()
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result"><a href="../Wacow_Application/Wacow_Application.html">Wacow_Application</a></span>
+										<a href="#getInstance" title="details" class="method-name">getInstance</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$setting</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$paths</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$runType</span>)
+									</div>
+																																																																<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#registerPlugin" title="details" class="method-name">registerPlugin</a>
+											(<span class="var-type"><a href="../Wacow_Application/Wacow_Application_Plugin/Wacow_Application_Plugin_Abstract.html">Wacow_Application_Plugin_Abstract</a></span>&nbsp;<span class="var-name">$plugin</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$pluginName</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#registerSessionSaveHandler" title="details" class="method-name">registerSessionSaveHandler</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$sessionSaveHandler</span>)
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result"><a href="../Wacow_Application/Wacow_Application.html">Wacow_Application</a></span>
+										<a href="#run" title="details" class="method-name">run</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$taskName</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#setConfigSettings" title="details" class="method-name">setConfigSettings</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$settings</span>)
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#setRuntimePaths" title="details" class="method-name">setRuntimePaths</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$paths</span>)
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result">Zend_Config</span>
+										<a href="#translatePath" title="details" class="method-name">translatePath</a>
+											(<span class="var-type">array|Zend_Config</span>&nbsp;<span class="var-name">$options</span>)
+									</div>
+																																																								
+																												<div class="method-definition">
+											<span class="method-result">Zend_Config</span>
+										<a href="#getConfig" title="details" class="method-name">getConfig</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$section</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getConstants" title="details" class="method-name">getConstants</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">Zend_Db_Adapter_Abstract</span>
+										<a href="#getDbAdapter" title="details" class="method-name">getDbAdapter</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">'default'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">Zend_Config</span>
+										<a href="#getDbOptions" title="details" class="method-name">getDbOptions</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">'default'</span>])
+									</div>
+																																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+										<a href="#getMailer" title="details" class="method-name">getMailer</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">'default'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Application/Wacow_Application_PathTranslator.html">Wacow_Application_PathTranslator</a></span>
+										<a href="#getPathTranslator" title="details" class="method-name">getPathTranslator</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_Application/Wacow_Application_Plugin/Wacow_Application_Plugin_Abstract.html">Wacow_Application_Plugin_Abstract</a></span>
+										<a href="#getPlugin" title="details" class="method-name">getPlugin</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$pluginName</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">Zend_Config</span>
+										<a href="#getRuntimeConfig" title="details" class="method-name">getRuntimeConfig</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$attr</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">Zend_Session_SaveHandler_Interface</span>
+										<a href="#getSessionSaveHandler" title="details" class="method-name">getSessionSaveHandler</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Wacow_View/Wacow_View.html">Wacow_View</a></span>
+										<a href="#getView" title="details" class="method-name">getView</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$viewType</span> = <span class="var-default">'html'</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+																																																																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_afterRun" title="details" class="method-name">_afterRun</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_beforeRun" title="details" class="method-name">_beforeRun</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_run" title="details" class="method-name">_run</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$taskName</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_runFrontController" title="details" class="method-name">_runFrontController</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#__get" title="details" class="method-name">__get</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__set" title="details" class="method-name">__set</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$_pathTranslator" id="$_pathTranslator"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type"><a href="../Wacow_Application/Wacow_Application_PathTranslator.html">Wacow_Application_PathTranslator</a></span>
+			<span class="var-name">$_pathTranslator</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">96</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Runtime paths translator</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_plugins" id="$_plugins"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">array</span>
+			<span class="var-name">$_plugins</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">89</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Plugins</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_reflectionClass" id="$_reflectionClass"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">ReflectionClass</span>
+			<span class="var-name">$_reflectionClass</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">82</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reflection class</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_sessionSaveHandler" id="$_sessionSaveHandler"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">Zend_Session_SaveHandler_Interface</span>
+			<span class="var-name">$_sessionSaveHandler</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">188</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Session save handler</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_config" id="$_config"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">Zend_Config</span>
+			<span class="var-name">$_config</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">174</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Config of application</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_debugMode" id="$_debugMode"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bool</span>
+			<span class="var-name">$_debugMode</span>
+			 = <span class="var-default"> true</span>			(line <span class="line-number">119</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Debug mode</p>
+<p class="description"><p>Set true if you are developing.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_defaultModule" id="$_defaultModule"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_defaultModule</span>
+			 = <span class="var-default"> 'default'</span>			(line <span class="line-number">135</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Default module</p>
+<p class="description"><p>Keep the value if you don't know what is it.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_deployMode" id="$_deployMode"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_deployMode</span>
+			 = <span class="var-default"> 'development'</span>			(line <span class="line-number">144</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Deploy mode</p>
+<p class="description"><p>Change the config of runtime.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_mailer" id="$_mailer"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_mailer</span>
+			 = <span class="var-default"> 'PHPMailer'</span>			(line <span class="line-number">158</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Application Mailer</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_name" id="$_name"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_name</span>
+			 = <span class="var-default"> 'Wacow'</span>			(line <span class="line-number">110</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Name of application</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_publicWebPath" id="$_publicWebPath"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_publicWebPath</span>
+			 = <span class="var-default"> ':pubWebPath'</span>			(line <span class="line-number">167</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Path of public resources</p>
+<p class="description"><p>You can change the value with config.ini.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_routeConfig" id="$_routeConfig"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">Zend_Config</span>
+			<span class="var-name">$_routeConfig</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">181</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Config of route</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_runtimeMode" id="$_runtimeMode"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_runtimeMode</span>
+			 = <span class="var-default"> 'http'</span>			(line <span class="line-number">103</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Mode of runtime</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_showError" id="$_showError"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bool</span>
+			<span class="var-name">$_showError</span>
+			 = <span class="var-default"> true</span>			(line <span class="line-number">126</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Show Exception</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_timezone" id="$_timezone"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_timezone</span>
+			 = <span class="var-default"> 'Asia/Taipei'</span>			(line <span class="line-number">151</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Time zone</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodaddActionHelper" id="addActionHelper"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method addActionHelper</span> (line <span class="line-number">269</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add action helper</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addActionHelper
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$helper</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Zend_Controller_Action_Helper_Abstract</span>
+				<span class="var-name">$helper</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddIncludePath" id="addIncludePath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method addIncludePath</span> (line <span class="line-number">299</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add include path</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addIncludePath
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetFrontController" id="getFrontController"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getFrontController</span> (line <span class="line-number">325</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get Front controller</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">Zend_Controller_Front</span>
+		<span class="method-name">
+			getFrontController
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetInstance" id="getInstance"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getInstance</span> (line <span class="line-number">215</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Singleton instance</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result"><a href="../Wacow_Application/Wacow_Application.html">Wacow_Application</a></span>
+		<span class="method-name">
+			getInstance
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$setting</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$paths</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$runType</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$setting</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$paths</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$runType</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodregisterPlugin" id="registerPlugin"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method registerPlugin</span> (line <span class="line-number">256</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Register plugin</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">void</span>
+		<span class="method-name">
+			registerPlugin
+		</span>
+					(<span class="var-type"><a href="../Wacow_Application/Wacow_Application_Plugin/Wacow_Application_Plugin_Abstract.html">Wacow_Application_Plugin_Abstract</a></span>&nbsp;<span class="var-name">$plugin</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$pluginName</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Wacow_Application/Wacow_Application_Plugin/Wacow_Application_Plugin_Abstract.html">Wacow_Application_Plugin_Abstract</a></span>
+				<span class="var-name">$plugin</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$pluginName</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodregisterSessionSaveHandler" id="registerSessionSaveHandler"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method registerSessionSaveHandler</span> (line <span class="line-number">236</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Register session save handler</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">void</span>
+		<span class="method-name">
+			registerSessionSaveHandler
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$sessionSaveHandler</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Zend_Session_SaveHandler_Interface</span>
+				<span class="var-name">$sessionSaveHandler</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrun" id="run"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method run</span> (line <span class="line-number">337</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Application run command</p>
+<p class="description"><p>Return Wacow_Application instance</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result"><a href="../Wacow_Application/Wacow_Application.html">Wacow_Application</a></span>
+		<span class="method-name">
+			run
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$taskName</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$taskName</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetConfigSettings" id="setConfigSettings"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method setConfigSettings</span> (line <span class="line-number">279</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Settings of config</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setConfigSettings
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$settings</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$settings</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetRuntimePaths" id="setRuntimePaths"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method setRuntimePaths</span> (line <span class="line-number">289</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set runtime paths</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setRuntimePaths
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$paths</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$paths</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtranslatePath" id="translatePath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method translatePath</span> (line <span class="line-number">315</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Translate paths of options</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">Zend_Config</span>
+		<span class="method-name">
+			translatePath
+		</span>
+					(<span class="var-type">array|Zend_Config</span>&nbsp;<span class="var-name">$options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array|Zend_Config</span>
+				<span class="var-name">$options</span>			</li>
+				</ul>
+		
+			
+	</div>
+
+<a name="methodgetConfig" id="getConfig"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConfig</span> (line <span class="line-number">482</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get config object</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Zend_Config</span>
+		<span class="method-name">
+			getConfig
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$section</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$section</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetConstants" id="getConstants"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConstants</span> (line <span class="line-number">511</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get all defined constants</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getConstants
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetDbAdapter" id="getDbAdapter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDbAdapter</span> (line <span class="line-number">522</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get named database adapter</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Zend_Db_Adapter_Abstract</span>
+		<span class="method-name">
+			getDbAdapter
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">'default'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetDbOptions" id="getDbOptions"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDbOptions</span> (line <span class="line-number">533</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get named database options</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Zend_Config</span>
+		<span class="method-name">
+			getDbOptions
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">'default'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetMailer" id="getMailer"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMailer</span> (line <span class="line-number">544</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get named mailer</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Mail/Wacow_Mail.html">Wacow_Mail</a></span>
+		<span class="method-name">
+			getMailer
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">'default'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetPathTranslator" id="getPathTranslator"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPathTranslator</span> (line <span class="line-number">456</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">get Path translator</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Application/Wacow_Application_PathTranslator.html">Wacow_Application_PathTranslator</a></span>
+		<span class="method-name">
+			getPathTranslator
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetPlugin" id="getPlugin"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPlugin</span> (line <span class="line-number">467</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get plugin by name</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_Application/Wacow_Application_Plugin/Wacow_Application_Plugin_Abstract.html">Wacow_Application_Plugin_Abstract</a></span>
+		<span class="method-name">
+			getPlugin
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$pluginName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$pluginName</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetRuntimeConfig" id="getRuntimeConfig"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRuntimeConfig</span> (line <span class="line-number">496</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get runtime configure by deploy mode.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Zend_Config</span>
+		<span class="method-name">
+			getRuntimeConfig
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$attr</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$attr</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetSessionSaveHandler" id="getSessionSaveHandler"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSessionSaveHandler</span> (line <span class="line-number">246</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get session save handler</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Zend_Session_SaveHandler_Interface</span>
+		<span class="method-name">
+			getSessionSaveHandler
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetView" id="getView"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getView</span> (line <span class="line-number">555</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get View</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Wacow_View/Wacow_View.html">Wacow_View</a></span>
+		<span class="method-name">
+			getView
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$viewType</span> = <span class="var-default">'html'</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$viewType</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_afterRun" id="_afterRun"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_afterRun</span> (line <span class="line-number">412</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Call plugins after application running</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_afterRun
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="method_beforeRun" id="_beforeRun"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_beforeRun</span> (line <span class="line-number">392</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Call plugins before application running</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_beforeRun
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="method_run" id="_run"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_run</span> (line <span class="line-number">347</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Run flow of appliction</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_run
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$taskName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$taskName</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_runFrontController" id="_runFrontController"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_runFrontController</span> (line <span class="line-number">371</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set front controller and dispatch</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_runFrontController
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="method__get" id="__get"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__get</span> (line <span class="line-number">443</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get member of application</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__get
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__set" id="__set"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__set</span> (line <span class="line-number">427</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set member of application</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__set
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 25 Feb 2009 04:24:45 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+	</p>
+	</div></body>
+</html>
