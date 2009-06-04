@@ -16,7 +16,7 @@
  * @package    Wacow_Controller
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Action.php 613 2009-01-06 12:18:23Z jaceju $
+ * @version    $Id: Action.php 648 2009-03-31 12:37:32Z jaceju $
  */
 
 /**
@@ -103,7 +103,7 @@ class Wacow_Controller_Action extends Zend_Controller_Action
         if ((bool) $this->_app->debugMode) {
             return false;
         }
-    
+
         $request = $this->getRequest(); /* @var $request Zend_Controller_Request_Http */
         $layoutManager = $this->getHelper('LayoutManager'); /* @var $layoutManager Wacow_Controller_Action_Helper_LayoutManager */
         if (method_exists($this->view, 'isCached')) {
@@ -269,6 +269,18 @@ class Wacow_Controller_Action extends Zend_Controller_Action
             return null;
         }
         parent::_redirect($url, $options);
+    }
+
+    /**
+     * If it is not ajax request then redirect to another URL
+     *
+     * @param string $url
+     */
+    protected function _redirectIfNotAjax($url = '/')
+    {
+        if (!$this->isAjax()) {
+            $this->_redirect($url);
+        }
     }
 
     /**
