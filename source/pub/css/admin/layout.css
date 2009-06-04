@@ -1,102 +1,114 @@
-/****************************
- * PAGE LAYOUT              *
- ****************************/
 html, body {
-position:relative;
 width:100%;
+height:100%;
+font-size:85%;
+background:#EAF3FA;
+}
+
+* {
+font-family:Arial;
 }
 
 #wrapper {
 position:relative;
 width:100%;
+height:100%;
 }
 
-    /****************************
-     * HEADER                   */
-    #header {
-    position:relative;
-    height:60px;
+#header, #footer {
+width:100%;
+background:#515E7B;
+}
+
+#header {
+position:fixed;
+height:80px;
+}
+
+    #member {
+    position:absolute;
+    width:50%;
+    height:50px;
+    top:0;
+    right:0;
+    color:#FFF;
+    padding-right:10px;
+    text-align:right;
+    line-height:50px;
     }
 
-        /****************************
-         * LOGO                     */
-        #logo {
-        position:relative;
-        width:170px;
-        height:60px;
-        }
-        
-        /****************************
-         * MEMBER                   */
-        #member {
-        position:absolute;
-        width:50%;
-        top:0;
-        right:0;
-        }
-        
-        /****************************
-         * MODULES                  */
-        #modules {
-        position:absolute;
-        bottom:0;
-        height:27px;
-        left:170px;
-        }
-        
-    /****************************
-     * BODY                     */
-    #body {
-    position:relative;
-    margin:0 10px;
-    padding-top:30px;
-    border:1px solid #6A9EC3;
-    height:auto !important;
-    height:1%;
+    #member a {
+    color:#FFF;
+    text-decoration:none;
     }
 
-        /****************************
-         * FUNCTIONS                */
-        #functions {
-        position:relative;
-        float:left;
-        display:inline-block;
-        width:210px !important;
-        }
-        
-        /****************************
-         * CONTENT WRAPPER          */
-        #contentWrapper {
-        position:relative;
-        margin-left:210px;
-        }
+    #member span {
+    padding:0 5px;
+    }
 
-        * html
-        #contentWrapper {
-        left:-3px;
-        display:inline-block;
-        padding-left:0px;
-        }
+    #menu {
+    position:absolute;
+    width:100%;
+    height:30px;
+    background:url(img/bg-menu.png) repeat-x;
+    }
 
-        /****************************
-         * CRUMBS                   */
-        #crumbs {
-        position:relative;
-        height:40px;
-        }
-
-        /****************************
-         * CONTENT                  */
-        #content {
-        position:relative;
-        padding:0 10px;
-        }
-
-    /****************************
-     * FOOTER                   */
-    #footer {
-    clear:both;
-    position:relative;
-    height:35px;
+    #menu > li {
+    float:left;
+    line-height:30px;
     padding:0 10px;
     }
+
+    #menu ul {
+    position:absolute;
+    min-width:150px;
+    width:auto !important;
+    width:150px;
+    border:1px solid #CCC;
+    border-top:none;
+    background:#FFF;
+    }
+
+    #menu a {
+    display:block;
+    text-decoration:none;
+    }
+
+    #menu > li > a,
+    * html #menu li ul li a {
+    padding:0 20px;
+    color:#EEE;
+    text-align:center;
+    }
+
+    #menu > li > a:hover {
+    color:#FFF;
+    background:#444;
+    }
+
+    #menu ul > li > a {
+    color:#666;
+    padding:0 10px;
+    }
+
+    #menu ul > li > a:hover {
+    color:#333;
+    background:#E4F2FD;
+    }
+
+#content {
+width:100%;
+height:100%;
+overflow:hidden;
+padding-top:80px;
+padding-bottom:50px;
+}
+
+#footer {
+position:fixed;
+bottom:0;
+height:50px;
+color:#FFF;
+line-height:50px;
+text-align:center;
+}

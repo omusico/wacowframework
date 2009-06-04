@@ -23,15 +23,17 @@
  */
 function smarty_modifier_datetime_part($string, $part)
 {
-    $part = strtoupper($part);
+    $part = strtolower($part);
     if (!$string) {
-        return null;
+        return '';
     }
     $dateTimeParts = date_parse($string);
-    if ('DATE' === $part) {
+    if ('date' === $part) {
         return sprintf('%04d-%02d-%02d', $dateTimeParts['year'], $dateTimeParts['month'], $dateTimeParts['day']);
-    } elseif ('TIME' === $part) {
-        return sprintf('%02d-%02d-%02d', $dateTimeParts['hour'], $dateTimeParts['minute'], $dateTimeParts['second']);
+    } elseif ('time' === $part) {
+        return sprintf('%02d:%02d:%02d', $dateTimeParts['hour'], $dateTimeParts['minute'], $dateTimeParts['second']);
+    } elseif (in_array($part, array_keys($dateTimeParts))) {
+        return $dateTimeParts[$part];
     } else {
         return '';
     }
