@@ -37,7 +37,7 @@
  *
  * @package     Wacow_View
  * @subpackage  Wacow_View_Html_Smarty
- * @version     $Id: function.css.php 597 2008-12-21 07:12:48Z jaceju $
+ * @version     $Id: function.css.php 685 2009-06-09 04:03:47Z jaceju $
  */
 
 /**
@@ -82,8 +82,8 @@ function smarty_function_css(array $params, Smarty &$smarty)
 
     // process javascript for IE
     if ($ie && $version) {
-        preg_match('/^([a-z]+)\s+([0-9]+)$/', $version, $matches);
-        $ie = $matches[1] . ' ' . $ie . ' ' . $matches[2];
+        preg_match('/^([a-z]*)\s*([0-9]+)$/', $version, $matches);
+        $ie = ($matches[1] ? $matches[1] . ' ' : '') . $ie . ' ' . $matches[2];
     }
     if (!isset($view->loadedStyleSheets[$ie])) {
         $view->loadedStyleSheets[$ie] = array();
