@@ -17,7 +17,7 @@
  * @subpackage Wacow_Controller_Plugin
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Auth.php 417 2008-04-25 02:42:23Z jaceju $
+ * @version    $Id: Auth.php 694 2009-07-16 07:46:01Z jaceju $
  */
 
 /**
@@ -160,9 +160,9 @@ class Wacow_Controller_Plugin_Auth extends Zend_Controller_Plugin_Abstract
             $roleId = $this->_defaultRoleId;
         }
 
-        $moduleName     = $request->getModuleName();
-        $controllerName = $request->getControllerName();
-        $actionName     = $request->getActionName();
+        $moduleName     = strtolower($request->getModuleName());
+        $controllerName = strtolower($request->getControllerName());
+        $actionName     = strtolower($request->getActionName());
         $resource       = $moduleName . ':' . $controllerName;
 
         if (!$this->_acl->has($resource)) {
