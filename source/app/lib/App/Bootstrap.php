@@ -75,14 +75,11 @@ class App_Bootstrap
      */
     public static function run($taskName = null)
     {
-        // setup front controller
-        /** Remove the single-line comment delimiter below if you want the authentication of application. */
-        // $frontController = Wacow_Application::getFrontController();
-        // $frontController->registerPlugin(new Wacow_Controller_Plugin_Auth(App_Acl::getInstance()));
-
         // setup application
         Wacow_Application::setConfigSettings(self::$_setting);
         Wacow_Application::setRuntimePaths(self::$_paths);
+
+        Wacow_Application::addActionHelper(new App_Controller_Action_Helper_AdminMenuHandler());
 
         // run
         Wacow_Application::run($taskName);
