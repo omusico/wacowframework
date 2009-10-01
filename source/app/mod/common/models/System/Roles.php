@@ -5,7 +5,7 @@
  * %License%
  *
  * @category    %ProjectName%
- * @package     Common_Model
+ * @package     Default_Model
  * @copyright
  * @version     $Id$
  */
@@ -22,34 +22,36 @@ require_once 'App/Db/Table.php';
  * @package     Common_Model
  * @copyright
  */
-class classname extends App_Db_Table
+class System_Roles extends App_Db_Table
 {
     /**
      * Table Name
      *
      * @var string
      */
-    protected $_name = 'tablename';
+    protected $_name = 'system_roles';
 
     /**
      * Row Class
      *
      * @var string
      */
-    // protected $_rowClass = 'rowclass';
+    // protected $_rowClass = 'System_Role';
 
     /**
      * Reference Mapping
      *
      * @var array
      */
-    // protected $_referenceMap    = array(
-    //     'rulename' => array(
-    //         'columns'           => 'foreignkey',
-    //         'refTableClass'     => 'tableclassname',
-    //         'refColumns'        => 'id',
-    //     ),
-    // );
+    /*
+    protected $_referenceMap    = array(
+        'rulename' => array(
+            'columns'           => 'foreignkey',
+            'refTableClass'     => 'tableclassname',
+            'refColumns'        => 'id',
+        ),
+    );
+    */
 
     /**
      * Dependented Tables
@@ -61,14 +63,14 @@ class classname extends App_Db_Table
     /**
      * self instance
      *
-     * @var classname
+     * @var System_Roles
      */
     private static $_instance = null;
 
     /**
      * Get instance
      *
-     * @return classname
+     * @return System_Roles
      */
     public static function getInstance()
     {
@@ -76,5 +78,18 @@ class classname extends App_Db_Table
             self::$_instance = new self();
         }
         return self::$_instance;
+    }
+
+    /**
+     * Fetch actived roles
+     *
+     * @return Wacow_Db_Table_Rowset
+     */
+    public static function fetchActivedRowset()
+    {
+        $roleTable = self::getInstance();
+        $select = $roleTable->select()
+                            ->where('status = ?', 'y');
+        return $roleTable->fetchAll($select);
     }
 }
