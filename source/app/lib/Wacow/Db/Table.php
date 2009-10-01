@@ -16,7 +16,7 @@
  * @package    Wacow_Db
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Table.php 599 2008-12-21 08:46:02Z jaceju $
+ * @version    $Id: Table.php 700 2009-09-03 07:37:20Z jaceju $
  */
 
 /**
@@ -66,7 +66,7 @@ class Wacow_Db_Table extends Zend_Db_Table_Abstract
      * @param  string $defaultSource OPTIONAL flag to force default values into new row
      * @return Wacow_Db_Table_Row
      */
-    public function createRow(array $data = array(), $defaultSource = true)
+    public function createRow(array $data = array(), $defaultSource = Zend_Db_Table_Abstract::DEFAULT_DB)
     {
         return parent::createRow($data, $defaultSource);
     }

@@ -37,7 +37,7 @@
  *
  * @package     Wacow_View
  * @subpackage  Wacow_View_Html_Smarty
- * @version     $Id: function.js.php 685 2009-06-09 04:03:47Z jaceju $
+ * @version     $Id: function.js.php 686 2009-06-09 04:08:25Z jaceju $
  */
 
 /**
@@ -82,10 +82,16 @@ function smarty_function_js(array $params, Smarty &$smarty)
     $version  = isset($params['version'])
               ? trim(strtolower($params['version']))
               : null;
+    $layoutType = ($view->layoutEnabled) ? 'sub' : 'main';
+
+    // layaout
+    if (!isset($view->loadedScripts[$layoutType])) {
+        $view->loadedScripts[$layoutType] = array();
+    }
 
     // position
-    if (!isset($view->loadedScripts[$position])) {
-        $view->loadedScripts[$position] = array();
+    if (!isset($view->loadedScripts[$layoutType][$position])) {
+        $view->loadedScripts[$layoutType][$position] = array();
     }
 
     // process scripts
@@ -97,13 +103,13 @@ function smarty_function_js(array $params, Smarty &$smarty)
         preg_match('/^([a-z]*)\s*([0-9]+)$/', $version, $matches);
         $ie = ($matches[1] ? $matches[1] . ' ' : '') . $ie . ' ' . $matches[2];
     }
-    if (!isset($view->loadedScripts[$position][$ie])) {
-        $view->loadedScripts[$position][$ie] = array();
+    if (!isset($view->loadedScripts[$layoutType][$position][$ie])) {
+        $view->loadedScripts[$layoutType][$position][$ie] = array();
     }
 
     // process compact javascript by racklin
-    if ($compact && !isset($view->loadedScripts[$position]['compact'])) {
-        $view->loadedScripts[$position]['compact'] = array();
+    if ($compact && !isset($view->loadedScripts[$layoutType][$position]['compact'])) {
+        $view->loadedScripts[$layoutType][$position]['compact'] = array();
     }
 
     // initital the path for javascript
@@ -117,17 +123,17 @@ function smarty_function_js(array $params, Smarty &$smarty)
         $src = rtrim($pubWebPath, '/') . $src;
 
         // key without baseUrl, but value with baseUrl for compatible
-        $view->loadedScripts[$position]['compact'][$src] = $baseUrl . $src;
+        $view->loadedScripts[$layoutType][$position]['compact'][$src] = $baseUrl . $src;
 
         // break
         return;
     }
 
     // load specified file
-    if (!isset($view->loadedScripts[$position][$ie][$src])) {
+    if (!isset($view->loadedScripts[$layoutType][$position][$ie][$src])) {
         if (!$external) {
             $src = $baseUrl . rtrim($pubWebPath, '/') . $src;
         }
-        $view->loadedScripts[$position][$ie][$src] = $src;
+        $view->loadedScripts[$layoutType][$position][$ie][$src] = $src;
     }
 }

@@ -111,6 +111,13 @@ class Wacow_Controller_Action_Helper_Uploader extends Zend_Controller_Action_Hel
     protected $_isAcceptSize = false;
 
     /**
+     * Save path of file
+     *
+     * @var string
+     */
+    protected $_fileSavePath = '';
+
+    /**
      * Reset all attributes
      *
      * @return Wacow_Controller_Action_Helper_Uploader
@@ -371,8 +378,18 @@ class Wacow_Controller_Action_Helper_Uploader extends Zend_Controller_Action_Hel
         }
         $newFileExt = '.' . ltrim($newFileExt, '.');
 
-        $fullSavePath = $savePath . $newFileName . $newFileExt;
+        $this->_fileSavePath = $savePath . $newFileName . $newFileExt;
 
-        return @move_uploaded_file($this->_originalFile['tmp_name'], $fullSavePath);
+        return @move_uploaded_file($this->_originalFile['tmp_name'], $this->_fileSavePath);
+    }
+
+    /**
+     * Get save path of file
+     *
+     * @return string
+     */
+    public function getFileSavePath()
+    {
+        return $this->_fileSavePath;
     }
 }

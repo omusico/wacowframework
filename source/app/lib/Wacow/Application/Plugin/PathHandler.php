@@ -42,6 +42,7 @@ class Wacow_Application_Plugin_PathHandler extends Wacow_Application_Plugin_Abst
      */
     public function beforeRun()
     {
+        Wacow_Application::addIncludePath(':commonPath/models');
         $this->_app->publicWebPath          = Wacow_Application::translatePath($this->_app->publicWebPath);
         $this->_app->config->common->module = Wacow_Application::translatePath($this->_app->config->common->module);
         $this->_app->config->common->view   = Wacow_Application::translatePath($this->_app->config->common->view);

@@ -16,18 +16,19 @@
  * @package    Wacow_Application
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Application.php 635 2009-02-25 02:43:34Z jaceju $
+ * @version    $Id: Application.php 709 2009-09-21 04:05:28Z jaceju $
  */
 
 /**
  * @see Zend_Loader
  */
-require_once 'Zend/Loader.php';
+require_once 'Zend/Loader/Autoloader.php';
 
 /**
  * Autoload
  */
-Zend_Loader::registerAutoload();
+$autoloader = Zend_Loader_Autoloader::getInstance();
+$autoloader->setFallbackAutoloader(true);
 
 /**
  * @see Wacow_Application_Plugin_PhpSetting
@@ -424,7 +425,7 @@ class Wacow_Application
      * @param string $name
      * @param mixed $value
      */
-    protected function __set($name, $value)
+    public function __set($name, $value)
     {
         $memberName = '_' . $name;
         if (self::$_reflectionClass->hasProperty($memberName)) {
@@ -440,7 +441,7 @@ class Wacow_Application
      * @param string $name
      * @return mixed
      */
-    protected function __get($name)
+    public function __get($name)
     {
         $memberName = '_' . $name;
         if (self::$_reflectionClass->hasProperty($memberName)) {
@@ -555,5 +556,59 @@ class Wacow_Application
     public function getView($viewType = 'html')
     {
         return $this->getPlugin('ResourceHandler')->getView($viewType);
+    }
+
+    /**
+     * Config of Acl
+     *
+     * @var Zend_config
+     */
+    private static $_aclConfig = null;
+
+    /**
+     * Get config of acl
+     *
+     * @return Zend_config
+     */
+    protected function _buildAclConfig()
+    {
+        if (!self::$_aclConfig) {
+             self::$_aclConfig = $this->_config->common->acl;
+        }
+    }
+
+    /**
+     * Is acl enabled
+     *
+     * @return bool
+     */
+    public function isAclEnabled()
+    {
+        $this->_buildAclConfig();
+        return isset(self::$_aclConfig->enable) ? (bool) self::$_aclConfig->enable : false;
+    }
+
+    /**
+     * Get acl object
+     *
+     * @return App_Acl_Static
+     */
+    public function getAcl()
+    {
+        $this->_buildAclConfig();
+        return (isset(self::$_aclConfig->class) && class_exists(self::$_aclConfig->class))
+             ? call_user_func(array(self::$_aclConfig->class, 'getInstance'))
+             : false;
+    }
+
+    /**
+     * Get acl options
+     *
+     * @return array
+     */
+    public function getAclOptions()
+    {
+        $this->_buildAclConfig();
+        return isset(self::$_aclConfig->options) ? self::$_aclConfig->options->toArray() : array();
     }
 }

@@ -6,7 +6,7 @@
  *
  * @package     Wacow_View
  * @subpackage  Wacow_View_Html_Smarty
- * @version     $Id: outputfilter.html.php 617 2009-01-07 08:28:23Z jaceju $
+ * @version     $Id: outputfilter.html.php 669 2009-04-10 05:01:12Z jaceju $
  */
 
 /**
@@ -35,26 +35,29 @@ function smarty_outputfilter_html($output, Smarty &$smarty)
     }
 
     // process css
-    $loadedStyleSheets = $view->loadedStyleSheets;
-    foreach ((array) $loadedStyleSheets as $browserVersion => $srcs) {
+    $tempLoadedStyleSheets = (array) $view->loadedStyleSheets;
+    ksort($tempLoadedStyleSheets);
+    foreach ($tempLoadedStyleSheets as $layoutType => $loadedStyleSheets) {
+        foreach ((array) $loadedStyleSheets as $browserVersion => $srcs) {
 
-        if ('compact' === $browserVersion) {
-            $compactResult = _assetGenerateCss($srcs, $smarty);
-            $browserVersion = 'none';
-            if ($compactResult) {
-                $result .= $compactResult;
-                continue;
+            if ('compact' === $browserVersion) {
+                $compactResult = _assetGenerateCss($srcs, $smarty);
+                $browserVersion = 'none';
+                if ($compactResult) {
+                    $result .= $compactResult;
+                    continue;
+                }
             }
-        }
 
-        if ('none' !== $browserVersion) {
-            $result .= "<!--[if $browserVersion]>\n";
-        }
-        foreach ($srcs as $href => $media) {
-            $result .= '<link rel="stylesheet" type="text/css" href="' . _getSrcWithVersion($href, $smarty) . '" media="' . $media . '" />' . "\n";
-        }
-        if ('none' !== $browserVersion) {
-            $result .= "<![endif]-->\n";
+            if ('none' !== $browserVersion) {
+                $result .= "<!--[if $browserVersion]>\n";
+            }
+            foreach ($srcs as $href => $media) {
+                $result .= '<link rel="stylesheet" type="text/css" href="' . _getSrcWithVersion($href, $smarty) . '" media="' . $media . '" />' . "\n";
+            }
+            if ('none' !== $browserVersion) {
+                $result .= "<![endif]-->\n";
+            }
         }
     }
 
@@ -78,41 +81,44 @@ function smarty_outputfilter_html($output, Smarty &$smarty)
     $output = preg_replace($pattern, $replace, $output);
 
     // process javascript
-    $loadedScripts = $view->loadedScripts;
-    foreach ((array) $loadedScripts as $position => $subLoadedScripts) {
+    $tempLoadedScripts = (array) $view->loadedScripts;
+    ksort($tempLoadedScripts);
+    foreach ($tempLoadedScripts as $layoutType => $loadedScripts) {
         $result = '';
-        foreach ((array) $subLoadedScripts as $browserVersion => $srcs) {
+        foreach ((array) $loadedScripts as $position => $subLoadedScripts) {
+            foreach ((array) $subLoadedScripts as $browserVersion => $srcs) {
 
-            // process asset compact javascript by racklin
-            if ('compact' === $browserVersion) {
-                $compactResult = _assetGenerateJs($srcs, $smarty);
-                $browserVersion = 'none';
-                if($compactResult) {
-                    $result .= $compactResult;
-                    continue;
+                // process asset compact javascript by racklin
+                if ('compact' === $browserVersion) {
+                    $compactResult = _assetGenerateJs($srcs, $smarty);
+                    $browserVersion = 'none';
+                    if($compactResult) {
+                        $result .= $compactResult;
+                        continue;
+                    }
+                }
+
+                if ('none' !== $browserVersion) {
+                    $result .= "<!--[if $browserVersion]>\n";
+                }
+
+                foreach ($srcs as $src) {
+                    $result .= '<script type="text/javascript" src="' . _getSrcWithVersion($src, $smarty) . '"></script>' . "\n";
+                }
+
+                if ('none' !== $browserVersion) {
+                    $result .= "<![endif]-->\n";
                 }
             }
 
-            if ('none' !== $browserVersion) {
-                $result .= "<!--[if $browserVersion]>\n";
+            $scriptBlock = '<!-- [script block] -->';
+            if ('body' === $position && stripos($output, $scriptBlock)) {
+                $output = str_replace($scriptBlock, $result, $output);
+            } else {
+                $pattern = '/(<\/' . $position . '>)/i';
+                $replace = "$result\n\\1";
+                $output = preg_replace($pattern, $replace, $output);
             }
-
-            foreach ($srcs as $src) {
-                $result .= '<script type="text/javascript" src="' . _getSrcWithVersion($src, $smarty) . '"></script>' . "\n";
-            }
-
-            if ('none' !== $browserVersion) {
-                $result .= "<![endif]-->\n";
-            }
-        }
-
-        $scriptBlock = '<!-- [script block] -->';
-        if ('body' === $position && stripos($output, $scriptBlock)) {
-            $output = str_replace($scriptBlock, $result, $output);
-        } else {
-            $pattern = '/(<\/' . $position . '>)/i';
-            $replace = "$result\n\\1";
-            $output = preg_replace($pattern, $replace, $output);
         }
     }
 

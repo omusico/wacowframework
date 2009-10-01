@@ -17,7 +17,7 @@
  * @subpackage Wacow_Controller_Plugin
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: ViewFactory.php 598 2008-12-21 08:03:51Z jaceju $
+ * @version    $Id: ViewFactory.php 673 2009-04-24 08:47:29Z jaceju $
  */
 
 /**
@@ -114,9 +114,6 @@ class Wacow_Controller_Plugin_ViewFactory extends Zend_Controller_Plugin_Abstrac
         if (!empty($responseFormat)) {
             if (in_array($responseFormat, self::$_definedViewType)) {
                 $viewType = $responseFormat;
-            }
-            if ('html' == $responseFormat) {
-                $this->_request->setParam('noLayout', true);
             }
         } else {
             if ($this->_request->isXmlHttpRequest()) {

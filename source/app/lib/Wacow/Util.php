@@ -221,5 +221,30 @@ class Wacow_Util
         }
         return $ip;
     }
+
+    /**
+     * Formats a string from a URI into a PHP-friendly name.
+     *
+     * By default, replaces words separated by the word separator character(s)
+     * with camelCaps. If $isAction is false, it also preserves replaces words
+     * separated by the path separation character with an underscore, making
+     * the following word Title cased. All non-alphanumeric characters are
+     * removed.
+     *
+     * @param string $unformatted
+     * @return string
+     */
+    public static function normalizeClassName($unformatted)
+    {
+        // preserve directories
+        $segments = explode('-', $unformatted);
+
+        foreach ($segments as $key => $segment) {
+            $segment        = preg_replace('/[^a-z0-9 ]/', '', $segment);
+            $segments[$key] = str_replace(' ', '', ucwords($segment));
+        }
+
+        return implode('_', $segments);
+    }
 }
 
