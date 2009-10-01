@@ -194,10 +194,9 @@ class Wacow_Application_Plugin_ConfigHandler extends Wacow_Application_Plugin_Ab
 ; Setting of application
 name          = %ProjectName%
 debugMode     = true
+showError     = true
 defaultModule = default
 deployMode    = development
-timezone      = "Asia/Taipei"
-mailer        = "PHPMailer"
 CONTENT;
             file_put_contents($this->_filePath, $configContent);
         }
@@ -212,12 +211,31 @@ CONTENT;
         if (!file_exists($this->_runtimePath)) {
             $configContent = <<<CONTENT
 [common]
-; Setting of view
-view.cron.compileDir                = ":tmpPath/compile/cron"
-view.cron.cacheDir                  = ":tmpPath/html/cron"
+; Setting of cron view
+view.cron.viewDir       = ":commonPath/views"
+view.cron.compileDir    = ":tmpPath/compile/cron"
+view.cron.cacheDir      = ":tmpPath/html/cron"
+view.cron.filters       = ""
+
+; Setting of asset packer
+asset.js.packedURL      = ":pubWebPath/js"
+asset.css.packedURL     = ":pubWebPath/css"
+asset.compress          = true
+
+; Setting of acl
+acl.class = App_Acl_Db
+acl.enable = true
+acl.options.loginHandler.module = ":moduleName"
+acl.options.loginHandler.controller = user
+acl.options.loginHandler.action = login
+acl.options.denyHandler.module = default
+acl.options.denyHandler.controller = error
+acl.options.denyHandler.action = privilege
 
 ; Path of modules
-module.default                      = ":modulePath/default/controllers"
+module.common  = ":modulePath/common/controllers"
+module.default = ":modulePath/default/controllers"
+module.admin   = ":modulePath/admin/controllers"
 
 [production]
 ; Databse setting
@@ -237,24 +255,7 @@ smtp.default.password =
 smtp.default.from     =
 smtp.default.charset  = "UTF-8"
 
-[development]
-; Databse setting
-; Default
-database.default.adapter         = pdo_mysql
-database.default.params.host     = localhost
-database.default.params.username = username
-database.default.params.password = password
-database.default.params.dbname   = database
-database.default.params.charset  = "UTF8"
-database.default.params.profiler = true
-
-; SMTP setting
-smtp.default.server   =
-smtp.default.auth     =
-smtp.default.username =
-smtp.default.password =
-smtp.default.from     =
-smtp.default.charset  = "UTF-8"
+[development : production]
 CONTENT;
             file_put_contents($this->_runtimePath, $configContent);
         }

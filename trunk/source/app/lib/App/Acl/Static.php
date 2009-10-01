@@ -22,7 +22,7 @@ require_once 'Zend/Acl.php';
  * @package     App
  * @copyright
  */
-class App_Acl extends Zend_Acl
+class App_Acl_Static extends Zend_Acl
 {
     /**
      * Singleton instance

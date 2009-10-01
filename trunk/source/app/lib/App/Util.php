@@ -128,34 +128,14 @@ class App_Util
     }
 
     /**
-     * Path of debug log.
-     *
-     * @var string
-     */
-    private static $_debugLogPath = WF_ROOT_PATH;
-
-    /**
-     * Set path of debug log.
-     *
-     * @param unknown_type $path
-     */
-    public static function setDebugLogPath($path)
-    {
-        if (is_dir($path)) {
-            self::$_debugLogPath = $path;
-        }
-    }
-
-    /**
      * Debug
      *
      * @param mixed $value
      */
     public static function debug($name, $value, $showTime = true)
     {
-        if (Wacow_Application::getInstance()->debugMode) {
-            $content = (($showTime ? date('Y-m-d H:i:s') : '') . "\n") . $name . "\n" . print_r($value, true) . "\n\n";
-            file_put_contents(self::$_debugLogPath . '/dump.log', $content, FILE_APPEND);
-        }
+        $filePath = WF_APP_PATH . '/log/dump/' . date('Ymd') . '.log';
+        $content = (($showTime ? date('Y-m-d H:i:s') : '') . "\n") . $name . "\n" . print_r($value, true) . "\n\n";
+        file_put_contents($filePath, $content, FILE_APPEND);
     }
 }
