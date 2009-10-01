@@ -7,35 +7,28 @@
 <% css href="/lib/jquery/ui/theme/smoothness/theme.css" %>
 <% js src="/lib/jquery/latest.js" %>
 <% js src="/lib/jquery/ui.js" %>
-<% js src="/lib/jquery/ui.js" %>
 <% js src="/js/admin/menu.js" %>
 </head>
 
 <body>
 
 <div id="wrapper">
-
     <div id="header">
         <div id="logo">
-            <a href="<% $frontendVars.baseUrl %>/"><img src="<% $frontendVars.baseUrl %>/pub/img/html/logo.png" alt="Wacow Backend System" /></a>
+            <a href="<% $frontendVars.baseUrl %>/admin"><img src="<% $frontendVars.baseUrl %>/pub/img/html/logo.png" alt="Wacow Backend System" /></a>
         </div>
-
         <div id="member">
             <span class="nickname first">Wellcome, user</span>
-            <span class="logout"><a href="<% $frontendVars.baseUrl %>/admin/logout">Logout</a></span>
+            <span class="logout"><a href="<% $frontendVars.baseUrl %>/logout">Logout</a></span>
         </div>
-
         <% content name="menu" %>
-
     </div>
 
     <div id="body">
-
         <div id="content">
-        <h2 class="pageTitle">SubFunction1</h2>
+        <h2 class="pageTitle"><% $pageTitle %></h2>
         <% content name="contentFromAction" %>
         </div>
-
     </div>
 
     <div id="footer">

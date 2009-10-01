@@ -1,0 +1,12 @@
+<% css href="/lib/jquery/ui/theme/smoothness/ui.theme.css" %>
+
+<% js src="/lib/jquery/latest.js" %>
+<% js src="/lib/jquery/ui.js" %>
+<% js src="/lib/jquery/ui/i18n/ui.datepicker-zh-TW.js" %>
+<% js src="/js/component/daterange-selector.js" %>
+
+<span>
+<label class="inline" for="<% $startDateTimeId|default:'startDateTime' %>">起始日：</label><input type="text" name="<% $startDateTimeName|default:'startDateTime' %>" id="<% $startDateTimeId|default:'startDateTime' %>" class="datepicker" value="<% $startDateTime %>" />
+<span class="separator">~</span>
+<label class="inline" for="<% $endDateTimeId|default:'endDateTime' %>">結束日：</label><input type="text" name="<% $endDateTimeName|default:'endDateTime' %>" id="<% $endDateTimeId|default:'endDateTime' %>" class="datepicker" value="<% $endDateTime %>" />
+</span>

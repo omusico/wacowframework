@@ -67,6 +67,7 @@ height:80px;
     border:1px solid #CCC;
     border-top:none;
     background:#FFF;
+    z-index:99;
     }
 
     #menu a {
@@ -96,12 +97,16 @@ height:80px;
     background:#E4F2FD;
     }
 
+#body {
+padding:20px;
+}
+
 #content {
 width:100%;
 height:100%;
 overflow:hidden;
 padding-top:80px;
-padding-bottom:50px;
+padding-bottom:130px;
 }
 
 #footer {
