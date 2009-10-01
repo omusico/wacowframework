@@ -17,7 +17,7 @@
  * @subpackage Wacow_Controller_Plugin
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: PathHandler.php 598 2008-12-21 08:03:51Z jaceju $
+ * @version    $Id: PathHandler.php 660 2009-04-02 12:24:26Z jaceju $
  */
 
 /**
@@ -49,14 +49,5 @@ class Wacow_Controller_Plugin_PathHandler extends Zend_Controller_Plugin_Abstrac
         $translator->addPathMapping(':controllerName', $this->_request->getControllerName());
         $translator->addPathMapping(':actionName', $this->_request->getActionName());
         $translator->addPathMapping(':moduleDir', $translator->getRuntimePath(':modulePath') . '/' . $this->_request->getModuleName());
-    }
-
-    /**
-     * Add include path of models by module.
-     *
-     */
-    public function preDispatch()
-    {
-        Wacow_Application::addIncludePath(':commonPath/models');
     }
 }

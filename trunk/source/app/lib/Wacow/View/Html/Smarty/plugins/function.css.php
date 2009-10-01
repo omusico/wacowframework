@@ -37,7 +37,7 @@
  *
  * @package     Wacow_View
  * @subpackage  Wacow_View_Html_Smarty
- * @version     $Id: function.css.php 685 2009-06-09 04:03:47Z jaceju $
+ * @version     $Id: function.css.php 686 2009-06-09 04:08:25Z jaceju $
  */
 
 /**
@@ -69,6 +69,7 @@ function smarty_function_css(array $params, Smarty &$smarty)
     $version  = isset($params['version'])
               ? trim(strtolower($params['version']))
               : null;
+    $layoutType = ($view->layoutEnabled) ? 'sub' : 'main';
 
     if (!$autoCompact) {
         $app = Wacow_Application::getInstance();
@@ -77,45 +78,50 @@ function smarty_function_css(array $params, Smarty &$smarty)
         }
     }
 
-    // asset compact javascript support by racklin
+    // asset compact stylesheet support by racklin
     $compact  = isset($params['compact']) || $autoCompact;
 
-    // process javascript for IE
+    // layout
+    if (!isset($view->loadedStyleSheets[$layoutType])) {
+        $view->loadedStyleSheets[$layoutType] = array();
+    }
+
+    // process stylesheet for IE
     if ($ie && $version) {
         preg_match('/^([a-z]*)\s*([0-9]+)$/', $version, $matches);
         $ie = ($matches[1] ? $matches[1] . ' ' : '') . $ie . ' ' . $matches[2];
     }
-    if (!isset($view->loadedStyleSheets[$ie])) {
-        $view->loadedStyleSheets[$ie] = array();
+    if (!isset($view->loadedStyleSheets[$layoutType][$ie])) {
+        $view->loadedStyleSheets[$layoutType][$ie] = array();
     }
 
-    // process compact javascript by racklin
-    if ($compact && !isset($view->loadedStyleSheets['compact'])) {
-        $view->loadedStyleSheets['compact'] = array();
+    // process compact stylesheet by racklin
+    if ($compact && !isset($view->loadedStyleSheets[$layoutType]['compact'])) {
+        $view->loadedStyleSheets[$layoutType]['compact'] = array();
     }
 
-    // initital the path for javascript
+    // initital the path for stylesheet
     $baseUrl = $smarty->_tpl_vars['frontendVars']['baseUrl'];
     $pubWebPath = Wacow_Application::getInstance()->publicWebPath;
 
-    // add javascript to compact array by racklin
+    // add stylesheet to compact array by racklin
     if ($compact && !$external) {
 
         // need src path
         $href = $baseUrl . rtrim($pubWebPath, '/') . $href;
 
         // key without baseUrl, but value with baseUrl for compatible
-        $view->loadedStyleSheets['compact'][$href] = $media;
+        $view->loadedStyleSheets[$layoutType]['compact'][$href] = $media;
 
         // break
         return;
     }
 
     // load specified file
-    if (!isset($view->loadedStyleSheets[$ie][$href])) {
+    if (!isset($view->loadedStyleSheets[$layoutType][$ie][$href])) {
         if (!$external) {
             $href = $baseUrl . rtrim($pubWebPath, '/') . $href;
         }
-        $view->loadedStyleSheets[$ie][$href] = $media;
+        $view->loadedStyleSheets[$layoutType][$ie][$href] = $media;
     }
 }

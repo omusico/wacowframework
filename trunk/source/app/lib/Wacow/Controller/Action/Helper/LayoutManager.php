@@ -17,7 +17,7 @@
  * @subpackage Wacow_Controller_Action_Helper
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: LayoutManager.php 613 2009-01-06 12:18:23Z jaceju $
+ * @version    $Id: LayoutManager.php 669 2009-04-10 05:01:12Z jaceju $
  */
 
 /**
@@ -190,6 +190,7 @@ class Wacow_Controller_Action_Helper_LayoutManager extends Zend_Controller_Actio
         if ($this->getRequest()->isXmlHttpRequest()) {
             $this->_layoutEnabled = false;
         }
+        $this->_view->layoutEnabled = $this->_layoutEnabled;
 
         if ($this->_layoutEnabled) {
 
@@ -210,6 +211,7 @@ class Wacow_Controller_Action_Helper_LayoutManager extends Zend_Controller_Actio
          * @todo Refactoring here
          */
         $this->_view->setLayoutContents($this->_layoutContents);
+        $this->_view->layoutEnabled = $this->_layoutEnabled = false;
 
         // process main template
         $result = ($mainTemplate)

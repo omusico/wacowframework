@@ -63,5 +63,10 @@ class Wacow_Application_Plugin_ControllerPluginHandler extends Wacow_Application
         $frontController = Zend_Controller_Front::getInstance();
         $frontController->registerPlugin(new Wacow_Controller_Plugin_PathHandler());
         $frontController->registerPlugin(new Wacow_Controller_Plugin_ViewFactory($viewOptions));
+
+        $aclObject = $this->_app->getAcl();
+        if ($this->_app->isAclEnabled() && $aclObject) {
+            $frontController->registerPlugin(new Wacow_Controller_Plugin_Auth($aclObject, $this->_app->getAclOptions()));
+        }
     }
 }

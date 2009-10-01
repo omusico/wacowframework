@@ -6,12 +6,12 @@
  *
  * Examples:
  * <code>
- * <wa:table_options database="sample" table="table" output="field1" values="field2" selected="value" where=$where order=$order />
+ * <% table_options database="sample" table="table" output="field1" values="field2" selected="value" where=$where order=$order %>
  * </code>
  *
  * @package     Wacow_View
  * @subpackage  Wacow_View_Html_Smarty
- * @version     $Id: function.table_options.php 543 2008-06-19 11:54:39Z jaceju $
+ * @version     $Id: function.table_options.php 701 2009-09-04 12:57:08Z jaceju $
  */
 
 /**

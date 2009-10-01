@@ -16,7 +16,7 @@
  * @package    Wacow_Controller
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Action.php 648 2009-03-31 12:37:32Z jaceju $
+ * @version    $Id: Action.php 709 2009-09-21 04:05:28Z jaceju $
  */
 
 /**
@@ -155,7 +155,7 @@ class Wacow_Controller_Action extends Zend_Controller_Action
      * @param string $name
      * @return Zend_Controller_Action_Helper_Abstract
      */
-    private function __get($name)
+    public function __get($name)
     {
         try {
             return $this->_helper->getHelper($name);

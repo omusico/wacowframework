@@ -17,7 +17,7 @@
  * @subpackage Wacow_Controller_Plugin
  * @copyright  Copyright (c) 2007-2009 Wabow Information Inc. (http://www.wabow.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @version    $Id: Auth.php 694 2009-07-16 07:46:01Z jaceju $
+ * @version    $Id: Auth.php 693 2009-07-16 07:45:50Z jaceju $
  */
 
 /**
