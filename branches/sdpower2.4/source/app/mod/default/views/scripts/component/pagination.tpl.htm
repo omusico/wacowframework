@@ -1,0 +1,34 @@
+<% css href="/css/admin/pagination.css" %>
+
+<% if $pager && is_object($pager) %>
+<% assign var="pagerInfo" value=$pager->getInfo() %>
+<% if $pagerInfo.totalSize > 0 %>
+<% assign var="pageList" value=$pagerInfo.pageList %>
+
+<div class="pagenav">
+<ul>
+<% if $pagerInfo.currentPage !== 1 %>
+<li class="first"><a href="<% $pager->buildLink(1) %>"><span>第一頁</span></a></li>
+<% /if %>
+<% if $pagerInfo.prevPage %>
+<li class="prev"><a href="<% $pager->buildLink($pagerInfo.prevPage) %>"><span>上一頁</span></a></li>
+<% /if %>
+<% foreach from=$pageList key=pageNum item=status %>
+<% if $status %>
+<li class="active"><a href="#"><% $pageNum %></a></li>
+<% else %>
+<li class="page"><a href="<% $pager->buildLink($pageNum) %>"><% $pageNum %></a></li>
+<% /if %>
+<% /foreach %>
+<% if $pagerInfo.nextPage %>
+<li class="next"><a href="<% $pager->buildLink($pagerInfo.nextPage) %>"><span>下一頁</span></a></li>
+<% /if %>
+<% if $pagerInfo.currentPage !== $pagerInfo.totalPages %>
+<li class="last"><a href="<% $pager->buildLink($pagerInfo.totalPages) %>"><span>最後頁</span></a></li>
+<% /if %>
+</ul>
+<span class="total">總筆數：<% $pagerInfo.totalSize %></span>
+</div>
+
+<% /if %>
+<% /if %>
