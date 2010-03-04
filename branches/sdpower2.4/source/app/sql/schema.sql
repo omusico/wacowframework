@@ -22,13 +22,15 @@ CREATE TABLE IF NOT EXISTS `system_configures` (
   `id` int(10) unsigned NOT NULL auto_increment COMMENT '自動編號',
   `name` varchar(100) default NULL COMMENT '名稱',
   `value` varchar(100) default NULL COMMENT '值',
+  `startDateTime` datetime NOT NULL default '2009-01-01 00:00:00' COMMENT '開始日期',
+  `endDateTime` datetime NOT NULL default '9999-12-31 23:59:59' COMMENT '結束日期',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='系統設定檔';
 
 DROP TABLE IF EXISTS `system_permissions`;
 CREATE TABLE IF NOT EXISTS `system_permissions` (
   `id` int(10) unsigned NOT NULL auto_increment COMMENT '自動編號',
-  `roleId` int(10) unsigned NOT NULL COMMENT '角色編號',
+  `roleId` int(10) unsigned default NULL COMMENT '角色編號',
   `resourceId` int(10) unsigned NOT NULL COMMENT '資源編號',
   `status` enum('y','n','x') NOT NULL default 'y' COMMENT '狀態',
   PRIMARY KEY  (`id`),
@@ -50,7 +52,9 @@ INSERT INTO `system_permissions` (`id`, `roleId`, `resourceId`, `status`) VALUES
 (11, 2, 6, 'y'),
 (12, 2, 7, 'y'),
 (13, 2, 8, 'y'),
-(14, 2, 9, 'y');
+(14, 2, 9, 'y'),
+(15, 1, 10, 'y'),
+(16, NULL, 11, 'y');
 
 DROP TABLE IF EXISTS `system_resources`;
 CREATE TABLE IF NOT EXISTS `system_resources` (
@@ -77,7 +81,9 @@ INSERT INTO `system_resources` (`id`, `parentId`, `name`, `module`, `controller`
 (6, NULL, '商品管理', 'admin', 'product', 'index', 'y', 'y', NULL, NULL),
 (7, NULL, '訂單管理', 'admin', 'order', 'index', 'y', 'y', NULL, NULL),
 (8, NULL, '新聞管理', 'admin', 'news', 'index', 'y', 'y', NULL, NULL),
-(9, 5, '新增會員', 'admin', 'member', 'add', 'y', 'y', NULL, NULL);
+(9, 5, '新增會員', 'admin', 'member', 'add', 'y', 'y', NULL, NULL),
+(10, NULL, '檔案上傳', 'admin', 'file', 'upload', 'y', 'y', NULL, NULL),
+(11, NULL, '前台首頁', 'default', 'index', 'index', 'n', 'y', NULL, NULL);
 
 DROP TABLE IF EXISTS `system_roles`;
 CREATE TABLE IF NOT EXISTS `system_roles` (
