@@ -10,7 +10,7 @@
  * <wa:content name="contentFromAction" />
  *
  * Get content from template file
- * <wa:content name="otherContent" />
+ * <% content name="otherContent" %>
  * </code>
  *
  * @package     Wacow_View

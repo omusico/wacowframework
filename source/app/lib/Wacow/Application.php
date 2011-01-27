@@ -482,8 +482,13 @@ class Wacow_Application
      */
     public function getConfig($section = null)
     {
-        if (is_string($section) && isset($this->_config->{$section})) {
-            return $this->_config->{$section};
+        if (null !== $section) {
+            $section = (string) $section;
+            if (isset($this->_config->{$section})) {
+                return $this->_config->{$section};
+            } else {
+                return null;
+            }
         } else {
             return $this->_config;
         }
@@ -497,8 +502,12 @@ class Wacow_Application
     public function getRuntimeConfig($attr = null)
     {
         $runtimeConfig =  $this->getConfig($this->_deployMode);
-        if ($attr && isset($runtimeConfig->{$attr})) {
-            return $runtimeConfig->{$attr};
+        if (null !== $attr) {
+            if (isset($runtimeConfig->{$attr})) {
+                return $runtimeConfig->{$attr};
+            } else {
+                return null;
+            }
         } else {
             return $runtimeConfig;
         }

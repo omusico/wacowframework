@@ -74,6 +74,7 @@ class App_Acl_Db extends Zend_Acl
         }
 
         /** Special permission */
+        $this->allow(WACOW_LEVEL_EVERYONE, 'default:index');
         $this->allow(WACOW_LEVEL_EVERYONE, 'admin:user', 'login');
         $this->allow(WACOW_LEVEL_EVERYONE, 'admin:user', 'logout');
     }
