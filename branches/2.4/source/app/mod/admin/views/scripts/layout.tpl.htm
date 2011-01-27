@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Wacow Backend System</title>
+<% css href="/css/admin.css" %>
+<% css href="/lib/jquery/ui/theme/smoothness/theme.css" %>
+<% js src="/lib/jquery/latest.js" %>
+<% js src="/lib/jquery/ui.js" %>
+<% js src="/js/admin/menu.js" %>
+</head>
+
+<body>
+
+<div id="wrapper">
+    <div id="header">
+        <div id="logo">
+            <a href="<% $frontendVars.baseUrl %>/admin"><img src="<% $frontendVars.baseUrl %>/pub/img/html/logo.png" alt="Wacow Backend System" /></a>
+        </div>
+        <div id="member">
+            <span class="nickname first">Wellcome, user</span>
+            <span class="logout"><a href="<% $frontendVars.baseUrl %>/logout">Logout</a></span>
+        </div>
+        <% content name="menu" %>
+    </div>
+
+    <div id="body">
+        <div id="content">
+        <h2 class="pageTitle"><% $pageTitle %></h2>
+        <% content name="contentFromAction" %>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>&copy;2009-2010 By Wabow Information Inc. All Rights Reserved.</p>
+    </div>
+
+</div>
+</body>
+</html>

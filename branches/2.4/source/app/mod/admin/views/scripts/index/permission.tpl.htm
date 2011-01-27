@@ -1,0 +1,28 @@
+<% if !$ajax %>
+<% css href="/css/admin/index/permission.css" %>
+<% js src="/lib/jquery/checkboxes.js" %>
+<% js src="/js/admin/index/permission.js" %>
+
+<% assign var="pageTitle" value="Permission" %>
+
+<form id="frmPermission" name="frmPermission" method="post" action="">
+	<div id="roleList">
+	    <label for="roleIdSelector">Role</label>
+	    <select name="roleIdSelector" id="roleIdSelector">
+	        <% foreach from=$roleRowset item="roleRow" %>
+            <option value="<% $roleRow->id %>"<% if $roleId == $roleRow->id %> selected="selected"<% /if %>><% $roleRow->name|htmlspecialchars %></option>
+            <% /foreach %>
+        </select>
+    </div>
+    <div id="resourceList">
+        <% content name="index/resource-list" %>
+    </div>
+    <p>
+    <input type="hidden" name="roleId" value="<% $roleId %>" />
+    <input type="hidden" name="update" value="1" />
+    <input type="submit" value="Save" />
+    </p>
+</form>
+<% else %>
+<% content name="index/resource-list" %>
+<% /if %>

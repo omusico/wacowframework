@@ -1,0 +1,13 @@
+<ul id="menu">
+    <% foreach from=$menuList item="menuItem" %>
+    <li><a href="<% $frontendVars.baseUrl %><% $menuItem.url %>"><% $menuItem.name|htmlspecialchars %></a>
+        <% if $menuItem.subMenuList %>
+        <ul>
+            <% foreach from=$menuItem.subMenuList item="subMenuItem" %>
+            <li><a href="<% $frontendVars.baseUrl %><% $subMenuItem.url %>"><% $subMenuItem.name|htmlspecialchars %></a></li>
+            <% /foreach %>
+        </ul>
+        <% /if %>
+    </li>
+    <% /foreach %>
+</ul>

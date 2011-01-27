@@ -1,0 +1,24 @@
+<% js src="/lib/jquery/latest.js" %>
+<% js src="/lib/jquery/blockUI.js" compact=true %>
+<% js src="/lib/jquery/form.js" compact=true %>
+<% js src="/lib/jquery/flash.js" compact=true %>
+<% css href="/css/style.css" compact=true %>
+<h1>Hello!! Wacow Framework!!</h1>
+<h3>With Auto Asset Packer Support , please view source.</h3>
+<p><a id="ajaxtest" href="<% $frontendVars.baseUrl %>/">Ajax Test</a></p>
+<script type="text/javascript">
+$(function () {
+    $('#ajaxtest').click(function () {
+        var link = this;
+        $.ajax({
+            type: "POST",
+            url: link.href,
+            dataType: "json",
+            success: function (json) {
+                $(link).html(json.pageTitle);
+            }
+        });
+        return false;
+    });
+});
+</script>
