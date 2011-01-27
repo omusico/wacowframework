@@ -7,31 +7,31 @@
  * Examples:
  * <code>
  * Load custom style sheet which located /pub/css/admin/user.css
- * <wa:css href="/css/admin/user.css" />
+ * <% css href="/css/admin/user.css" %>
  * convert to:
- * <link rel="stylesheet" type="text/css" href="/pub/css/admin/user.css" media="all" />
+ * <link rel="stylesheet" type="text/css" href="/pub/css/admin/user.css" media="all" %>
  *
  * Load style sheet of jquery thickbox for screen
- * <wa:css href="/lib/jquery/thickbox.css" media="screen" />
+ * <% css href="/lib/jquery/thickbox.css" media="screen" %>
  * convert to:
- * <link rel="stylesheet" type="text/css" href="/pub/lib/jquery/thickbox.css" media="screen" />
+ * <link rel="stylesheet" type="text/css" href="/pub/lib/jquery/thickbox.css" media="screen" %>
  *
  * Load external javascript
- * <wa:css href="http://example.com/example.css" />
+ * <% css href="http://example.com/example.css" %>
  * convert to:
- * <link rel="stylesheet" type="text/css" href="http://example.com/example.css" media="all" />
+ * <link rel="stylesheet" type="text/css" href="http://example.com/example.css" media="all" %>
  *
  * Load IE only style sheet
- * <wa:css href="http://example.com/example.css" ie="yes" />
+ * <% css href="http://example.com/example.css" ie="yes" %>
  * convert to:
  * <!--[if IE]>
- * <link rel="stylesheet" type="text/css" href="http://example.com/example.css" media="all" />
+ * <link rel="stylesheet" type="text/css" href="http://example.com/example.css" media="all" %>
  * <![endif]-->
  *
  * Load javascript on IE which version less than 7
- * <wa:css href="/theme/wacow/style_ie.css" ie="yes" version="lt 7" />
+ * <% css href="/theme/wacow/style_ie.css" ie="yes" version="lt 7" %>
  * <!--[if lt IE 7]>
- * <link rel="stylesheet" type="text/css" href="/pub/theme/wacow/style_ie.css" media="all" />
+ * <link rel="stylesheet" type="text/css" href="/pub/theme/wacow/style_ie.css" media="all" %>
  * <![endif]-->
  * </code>
  *

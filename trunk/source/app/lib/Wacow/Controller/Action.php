@@ -294,6 +294,15 @@ class Wacow_Controller_Action extends Zend_Controller_Action
     }
 
     /**
+     * Is type of view Wacow_View_Json ?
+     *
+     */
+    public function isJson()
+    {
+        return (bool) ($this->view instanceof Wacow_View_Json);
+    }
+
+    /**
      * Is post back?
      *
      * @return boolean

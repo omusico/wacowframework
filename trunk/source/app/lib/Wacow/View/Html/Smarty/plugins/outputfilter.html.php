@@ -83,8 +83,12 @@ function smarty_outputfilter_html($output, Smarty &$smarty)
     // process javascript
     $tempLoadedScripts = (array) $view->loadedScripts;
     ksort($tempLoadedScripts);
+    $result = array(
+        'head' => '',
+        'body' => '',
+    );
+
     foreach ($tempLoadedScripts as $layoutType => $loadedScripts) {
-        $result = '';
         foreach ((array) $loadedScripts as $position => $subLoadedScripts) {
             foreach ((array) $subLoadedScripts as $browserVersion => $srcs) {
 
@@ -93,33 +97,41 @@ function smarty_outputfilter_html($output, Smarty &$smarty)
                     $compactResult = _assetGenerateJs($srcs, $smarty);
                     $browserVersion = 'none';
                     if($compactResult) {
-                        $result .= $compactResult;
+                        $result[$position] .= $compactResult;
                         continue;
                     }
                 }
 
                 if ('none' !== $browserVersion) {
-                    $result .= "<!--[if $browserVersion]>\n";
+                    $result[$position] .= "<!--[if $browserVersion]>\n";
                 }
 
                 foreach ($srcs as $src) {
-                    $result .= '<script type="text/javascript" src="' . _getSrcWithVersion($src, $smarty) . '"></script>' . "\n";
+                    // skip exists js
+                    if (('sub' === $layoutType) && isset($tempLoadedScripts['main'][$position][$browserVersion][$src])) {
+                        continue;
+                    }
+
+                    $result[$position] .= '<script type="text/javascript" src="' . _getSrcWithVersion($src, $smarty) . '"></script>' . "\n";
                 }
 
                 if ('none' !== $browserVersion) {
-                    $result .= "<![endif]-->\n";
+                    $result[$position] .= "<![endif]-->\n";
                 }
             }
-
-            $scriptBlock = '<!-- [script block] -->';
-            if ('body' === $position && stripos($output, $scriptBlock)) {
-                $output = str_replace($scriptBlock, $result, $output);
-            } else {
-                $pattern = '/(<\/' . $position . '>)/i';
-                $replace = "$result\n\\1";
-                $output = preg_replace($pattern, $replace, $output);
-            }
         }
+    }
+
+    $scriptBlock = '<!-- [script block] -->';
+    if (('body' === $position) && stripos($output, $scriptBlock)) {
+        $output = str_replace($scriptBlock, $result[$position], $output);
+        unset($result[$position]);
+    }
+
+    foreach ($result as $position => $scripts) {
+        $pattern = '/(<\/' . $position . '>)/i';
+        $replace = "$scripts\n\\1";
+        $output = preg_replace($pattern, $replace, $output);
     }
 
     return $output;
@@ -195,7 +207,6 @@ function _assetProcess($srcs, Smarty &$smarty, $type)
     $app         = Wacow_Application::getInstance();
     $assetConfig = Wacow_Application::translatePath($app->getConfig('common')->asset);
     $rootPath    = Wacow_Application::translatePath(':rootPath');
-    $compress    = isset($assetConfig->compress);
 
     if ('js' === $type) {
         $packedURL = $assetConfig->js->packedURL;
@@ -242,22 +253,10 @@ function _assetProcess($srcs, Smarty &$smarty, $type)
                 foreach ($srcs as $src => $srcWithBaseUrl) {
                     $scriptBuffer .= file_get_contents($rootPath . $src) . "\n\n";
                 }
-                if ($compress) {
-                    require_once('Wacow/vendor/jsmin/jsmin.php');
-                    $scriptBuffer = JSMin::minify($scriptBuffer);
-                }
                 break;
             case 'css':
                 foreach ($srcs as $srcWithBaseUrl => $media) {
                     $scriptBuffer .= file_get_contents($rootPath . str_replace($baseUrl, '', $srcWithBaseUrl)) . "\n\n";
-                }
-                if ($compress) {
-                    require_once('Wacow/vendor/css_tidy/class.csstidy.php');
-                    $tidy = new csstidy();
-                    $tidy->settings['merge_selectors'] = false;
-                    $tidy->load_template('high_compression');
-                    $tidy->parse($scriptBuffer);
-                    $scriptBuffer = $tidy->print->plain();
                 }
                 break;
         }

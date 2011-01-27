@@ -162,6 +162,7 @@ class Wacow_Controller_Action_Helper_ImageResizer extends Zend_Controller_Action
      * @param int $maxWidth
      * @param int $maxHeight
      * @param boolean $fill
+     * @param array $bgColor
      * @param int $quality
      */
     public function setDestination($destinationPath, $maxWidth, $maxHeight, $fill = false, $bgColor = array(0xFF, 0xFF, 0xFF), $quality = 100)
@@ -172,6 +173,8 @@ class Wacow_Controller_Action_Helper_ImageResizer extends Zend_Controller_Action
         $this->_maxHeight = ($h = (int) $maxHeight) ? $h : 1;
         $this->_fill = (bool) $fill;
         $this->_destRatio = $this->_maxWidth / $this->_maxHeight;
+        $this->_fillColor = $bgColor;
+        $this->_destQuality = $quality;
     }
 
     /**

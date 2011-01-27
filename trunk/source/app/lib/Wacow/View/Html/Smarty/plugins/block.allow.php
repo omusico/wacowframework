@@ -7,7 +7,7 @@
  * Examples:
  * <code>
  * Show update link if accessible.
- * <% allow class="Acl" role="guest" resource="default:user" privilege="update" %><a href="#">Update</a><% /allow %>
+ * <% allow acl=$acl role="guest" resource="default:user" privilege="update" admin=$smart.const.ADMIN %><a href="#">Update</a><% /allow %>
  * </code>
  *
  * @package     Wacow_View
@@ -64,6 +64,10 @@ function _checkAccess(Array $params)
     $privilege = isset($params['privilege'])
                ? trim($params['privilege'])
                : null;
+    $admin     = isset($params['admin'])
+               ? trim($params['admin'])
+               : 1;
+
 
     // check acl object
     if (!($acl instanceof Zend_Acl)) {
@@ -72,7 +76,11 @@ function _checkAccess(Array $params)
     /* @var $acl Zend_Acl */
 
     // check access
-    return ($privilege)
-         ? $acl->isAllowed($role, $resource, $privilege)
-         : $acl->isAllowed($role, $resource);
+    try {
+        return ($privilege)
+             ? $acl->isAllowed($role, $resource, $privilege)
+             : $acl->isAllowed($role, $resource);
+    } catch (Exception $e) {
+        return ($admin == $role) ? true : false;
+    }
 }
